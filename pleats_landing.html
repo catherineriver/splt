@@ -3,77 +3,24 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Pleat — the workbook for sewists</title>
-  <meta name="description" content="Pleat is an iPhone workbook for sewists. Track fabric, plan honestly, and know the real cost of every garment you make.">
+  <title>Pleat — fabric stash and project cost for iPhone</title>
+  <meta name="description" content="Pleat is an iPhone app for people who sew: keep your fabric stash, check it before you buy, plan projects against it, and add up what a make really cost.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
   <style>
-    @font-face {
-      font-family: "Fraunces Soft";
-      src: url("../Pleat/Resources/Fonts/Fraunces_72pt_Soft-Regular.ttf") format("truetype");
-      font-weight: 400;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: "Fraunces Soft";
-      src: url("../Pleat/Resources/Fonts/Fraunces_72pt_Soft-Italic.ttf") format("truetype");
-      font-weight: 400;
-      font-style: italic;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: "Geist";
-      src: url("../Pleat/Resources/Fonts/Geist-Regular.ttf") format("truetype");
-      font-weight: 400;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: "Geist";
-      src: url("../Pleat/Resources/Fonts/Geist-Medium.ttf") format("truetype");
-      font-weight: 500;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: "Geist";
-      src: url("../Pleat/Resources/Fonts/Geist-SemiBold.ttf") format("truetype");
-      font-weight: 600;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: "JetBrains Mono";
-      src: url("../Pleat/Resources/Fonts/JetBrainsMono-Regular.ttf") format("truetype");
-      font-weight: 400;
-      font-style: normal;
-      font-display: swap;
-    }
-
     :root {
       --paper: #f4efe3;
-      --paper-2: #ebe4d2;
-      --paper-3: #dcd3bd;
       --card: #fcfaf4;
       --ink: #2a2419;
       --ink-2: #5a4f3f;
       --ink-3: #8c8170;
-      --line: rgba(42, 36, 25, 0.1);
-      --line-2: rgba(42, 36, 25, 0.05);
+      --line: rgba(42, 36, 25, 0.14);
       --clay: #b95f3c;
       --clay-deep: #8e4326;
-      --clay-soft: #f4e1d2;
-      --sage: #6b8568;
       --sage-deep: #485e48;
-      --sage-soft: #dde5d8;
-      --disp: "Newsletter", "Fraunces Soft", Georgia, serif;
-      --body: "Geist", -apple-system, BlinkMacSystemFont, sans-serif;
-      --mono: "JetBrains Mono", ui-monospace, monospace;
-      --ease: cubic-bezier(0.2, 0, 0, 1);
+      --serif: "Newsreader", Georgia, serif;
+      --sans: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
     }
 
     * { box-sizing: border-box; }
@@ -82,1701 +29,414 @@
       margin: 0;
       background: var(--paper);
       color: var(--ink);
-      font-family: var(--body);
+      font-family: var(--sans);
+      font-size: 17px;
+      line-height: 1.55;
       -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-      overflow-x: hidden;
     }
+    a { color: inherit; }
+    button, input { font: inherit; color: inherit; }
 
-    a { color: inherit; text-decoration: none; }
-    button, input, select { font: inherit; color: inherit; }
-
-    .topnav {
-      position: sticky;
-      top: 0;
-      z-index: 30;
-      padding: 18px 32px;
-      background: rgba(244, 239, 227, 0.86);
-      backdrop-filter: blur(20px);
-      border-bottom: 0.5px solid var(--line);
-    }
-
-    .topnav .inner,
-    .hero .inner,
-    .counters .inner,
-    .section-inner,
-    .pricing,
-    .footer .inner {
-      max-width: 1180px;
+    .wrap {
+      max-width: 1040px;
       margin: 0 auto;
+      padding: 0 24px;
     }
 
-    .topnav .inner,
-    .footer .inner {
+    /* Header */
+    header {
+      border-bottom: 1px solid var(--line);
+    }
+    header .wrap {
       display: flex;
-      align-items: center;
+      align-items: baseline;
       justify-content: space-between;
       gap: 16px;
-      flex-wrap: wrap;
+      padding-top: 20px;
+      padding-bottom: 18px;
     }
-
     .wm {
-      font-family: var(--disp);
-      font-style: italic;
+      font-family: var(--serif);
       font-size: 26px;
-      line-height: 1;
-      letter-spacing: -0.025em;
-    }
-
-    .wm .dot { color: var(--clay); }
-
-    .topnav .links,
-    .footer .links {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    .topnav .links a,
-    .footer .links a {
-      font-size: 13px;
-      color: var(--ink-2);
       font-weight: 500;
+      text-decoration: none;
+      letter-spacing: -0.01em;
     }
-
-    .topnav .cta {
-      padding: 9px 16px;
-      border-radius: 999px;
-      background: var(--ink);
-      color: var(--paper);
-      font-size: 13px;
-      font-weight: 500;
-    }
-
-    .hero {
-      position: relative;
-      padding: 48px 32px 96px;
-      overflow: hidden;
-    }
-
-    .hero .inner {
-      display: grid;
-      grid-template-columns: 1.08fr 1fr;
-      gap: 64px;
-      align-items: center;
-    }
-
-    .hero .copy {
+    header nav {
       display: flex;
-      flex-direction: column;
-      gap: 24px;
-      max-width: 560px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      width: fit-content;
-      font-family: var(--mono);
-      font-size: 11px;
-      letter-spacing: 0.12em;
-      color: var(--ink-3);
-      text-transform: uppercase;
-    }
-
-    .pulse {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--clay);
-      box-shadow: 0 0 0 0 rgba(185, 95, 60, 0.5);
-      animation: pulse 2.2s ease-in-out infinite;
-    }
-
-    .hero h1 {
-      margin: 0;
-      font-family: var(--disp);
-      font-style: italic;
-      font-size: clamp(58px, 8vw, 96px);
-      line-height: 0.92;
-      letter-spacing: -0.04em;
-    }
-
-    .hero h1 .ln {
-      display: block;
-      overflow: hidden;
-    }
-
-    .hero h1 .ln span {
-      display: inline-block;
-      transform: translateY(110%);
-      animation: rise-line 0.85s var(--ease) forwards;
-    }
-
-    .hero h1 .ln:nth-child(1) span { animation-delay: 0.16s; }
-    .hero h1 .ln:nth-child(2) span { animation-delay: 0.3s; }
-    .hero h1 .ln:nth-child(3) span { animation-delay: 0.44s; }
-
-    .hero h1 .accent { color: var(--clay); }
-
-    .hero .deck {
-      margin: 0;
-      max-width: 500px;
-      font-family: var(--disp);
-      font-size: 20px;
-      line-height: 1.5;
-      color: var(--ink-2);
-    }
-
-    .hero .ctas {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .hero .pri,
-    .hero .sec {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 14px 24px;
-      border-radius: 999px;
+      gap: 22px;
       font-size: 15px;
-      font-weight: 500;
+    }
+    header nav a { text-decoration: none; color: var(--ink-2); }
+    header nav a:hover { color: var(--ink); }
+
+    h1, h2, h3 {
+      font-family: var(--serif);
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      margin: 0;
     }
 
-    .hero .pri {
-      background: var(--clay);
-      color: var(--paper);
-      box-shadow: 0 6px 20px rgba(185, 95, 60, 0.25);
-    }
-
-    .hero .sec {
-      border: 1px solid var(--line);
-      color: var(--ink);
-      background: transparent;
-    }
-
-    .hero .meta {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--ink-3);
-      letter-spacing: 0.04em;
-    }
-
-    .hero .meta .dot {
-      width: 3px;
-      height: 3px;
-      border-radius: 50%;
-      background: var(--ink-3);
-      align-self: center;
-    }
-
-    .hero-stage {
-      position: relative;
-      height: 620px;
-    }
-
-    .fabric-grid {
-      position: absolute;
-      inset: 0;
+    /* Intro */
+    .intro {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(6, 1fr);
-      gap: 8px;
-      padding: 12px;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 56px;
+      align-items: start;
+      padding-top: 72px;
+      padding-bottom: 80px;
     }
-
-    .fabric-grid .tile {
-      border-radius: 6px;
-      position: relative;
-      overflow: hidden;
-      box-shadow: inset 0 0 0 0.5px rgba(255,255,255,0.08);
-      animation: tile-drift 18s ease-in-out infinite;
-    }
-
-    .fabric-grid .tile::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 40%, rgba(0,0,0,0.2) 100%);
-    }
-
-    .fabric-grid .tile:nth-child(6n+1) { background: #506b8a; }
-    .fabric-grid .tile:nth-child(6n+2) { background: #8e6b4f; }
-    .fabric-grid .tile:nth-child(6n+3) { background: #4a584e; }
-    .fabric-grid .tile:nth-child(6n+4) { background: #9e5a3b; }
-    .fabric-grid .tile:nth-child(6n+5) { background: #c4b59b; }
-    .fabric-grid .tile:nth-child(6n) { background: #2d3e4f; }
-    .fabric-grid .tile:nth-child(odd) { animation-delay: 0.8s; }
-
-    .hero-scrim {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background: radial-gradient(ellipse at center, rgba(244, 239, 227, 0.35) 0%, rgba(244, 239, 227, 0.78) 60%, var(--paper) 100%);
-    }
-
-    .stage-artifact {
-      position: absolute;
-      background: var(--card);
-      box-shadow: 0 24px 50px rgba(42, 36, 25, 0.18), 0 4px 12px rgba(42, 36, 25, 0.08);
-      z-index: 3;
-      transition: transform 0.4s var(--ease), box-shadow 0.3s var(--ease);
-    }
-
-    .stage-artifact:hover {
-      z-index: 5;
-      box-shadow: 0 32px 60px rgba(42, 36, 25, 0.24), 0 6px 18px rgba(42, 36, 25, 0.12);
-    }
-
-    .stage-stash {
-      left: 22%;
-      top: 68%;
-      width: 230px;
-      padding: 16px;
-      border-radius: 12px;
-      border: 0.5px solid var(--line);
-      transform: translate(-50%, -50%) rotate(-8deg);
-    }
-
-    .stage-stash .head,
-    .stage-project .foot {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-    }
-
-    .stage-stash .head .nm,
-    .stage-project .foot .lbl {
-      font-family: var(--mono);
-      font-size: 9px;
-      letter-spacing: 0.14em;
+    .status {
+      font-size: 14px;
       color: var(--ink-3);
-      text-transform: uppercase;
+      margin: 0 0 18px;
     }
-
-    .stage-stash .head .pill {
-      font-family: var(--mono);
-      font-size: 8px;
-      letter-spacing: 0.1em;
-      padding: 2px 6px;
-      border-radius: 999px;
-      background: var(--paper-2);
+    h1 {
+      font-size: 46px;
+      line-height: 1.1;
+      margin-bottom: 22px;
+    }
+    .intro p.lede {
       color: var(--ink-2);
-      text-transform: uppercase;
+      max-width: 34em;
+      margin: 0 0 28px;
     }
-
-    .stage-stash .stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 6px;
-      padding: 8px 0 10px;
-      border-bottom: 0.5px solid var(--line-2);
-    }
-
-    .stage-stash .stats .lbl,
-    .stage-project .req .role {
-      display: block;
-      font-family: var(--mono);
-      font-size: 7px;
-      letter-spacing: 0.1em;
-      color: var(--ink-3);
-      text-transform: uppercase;
-    }
-
-    .stage-stash .stats .v,
-    .stage-project .foot .v {
-      margin-top: 2px;
-      font-family: var(--disp);
-      font-style: italic;
-      font-size: 17px;
-      letter-spacing: -0.02em;
-    }
-
-    .stage-stash .row {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      padding: 5px 0;
-    }
-
-    .stage-stash .sw {
-      width: 16px;
-      height: 20px;
-      border-radius: 2px;
-      flex-shrink: 0;
-    }
-
-    .stage-stash .name { font-size: 10px; flex: 1; }
-    .stage-stash .len,
-    .stage-receipt .sub,
-    .stage-receipt .hdr,
-    .stage-receipt .group,
-    .stage-receipt .stub {
-      font-family: var(--mono);
-    }
-
-    .stage-stash .len { font-size: 9px; color: var(--ink-3); }
-
-    .stage-project {
-      left: 78%;
-      top: 32%;
-      width: 220px;
-      padding: 14px;
-      border-radius: 12px;
-      border: 0.5px solid var(--line);
-      transform: translate(-50%, -50%) rotate(6deg);
-    }
-
-    .stage-project .top {
-      display: flex;
-      gap: 8px;
-      align-items: flex-start;
-    }
-
-    .stage-project .sw {
-      width: 32px;
-      height: 40px;
-      border-radius: 4px;
-      flex-shrink: 0;
-      background: linear-gradient(135deg, #506b8a 0%, #2d3e4f 100%);
-    }
-
-    .stage-project .ttl {
-      font-family: var(--disp);
-      font-style: italic;
-      font-size: 16px;
-      line-height: 1.05;
-      letter-spacing: -0.02em;
-    }
-
-    .stage-project .status {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      padding: 2px 7px;
-      border-radius: 999px;
-      background: var(--paper-2);
-      margin-top: 4px;
-      font-family: var(--mono);
-      font-size: 8px;
-      letter-spacing: 0.1em;
-      color: var(--ink-2);
-      text-transform: uppercase;
-    }
-
-    .stage-project .status .dot {
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      background: var(--ink-3);
-    }
-
-    .stage-project .reqs {
-      margin-top: 10px;
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-    }
-
-    .stage-project .req {
-      padding: 6px 8px;
-      background: var(--clay-soft);
-      border-radius: 6px;
-      border-left: 2px solid var(--clay);
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 10px;
-    }
-
-    .stage-project .req .sub {
-      font-size: 9px;
-      color: var(--clay-deep);
-      margin-top: 1px;
-    }
-
-    .stage-project .req .amt {
-      font-family: var(--disp);
-      font-style: italic;
-      font-size: 13px;
-      color: var(--clay-deep);
-    }
-
-    .stage-project .foot {
-      margin-top: 10px;
-      padding-top: 8px;
-      border-top: 0.5px solid var(--line-2);
-    }
-
-    .stage-receipt {
-      left: 50%;
-      top: 50%;
-      width: 280px;
-      padding: 24px 22px 20px;
-      border-radius: 6px;
-      border: 0.5px dashed var(--ink-2);
-      transform: translate(-50%, -50%) rotate(-2deg);
-      z-index: 4;
-    }
-
-    .stage-receipt .hdr,
-    .stage-receipt .sub {
-      display: block;
-      font-size: 9px;
-      letter-spacing: 0.18em;
-      color: var(--ink-3);
-      text-align: center;
-    }
-
-    .stage-receipt .title {
-      margin-top: 6px;
-      font-family: var(--disp);
-      font-style: italic;
-      font-size: 22px;
-      text-align: center;
-      line-height: 1;
-      letter-spacing: -0.02em;
-    }
-
-    .stage-receipt .sub {
-      margin-top: 4px;
-      letter-spacing: 0.08em;
-    }
-
-    .stage-receipt .group {
-      display: block;
-      margin-top: 12px;
-      font-size: 9px;
-      letter-spacing: 0.12em;
-      color: var(--ink-3);
-      text-transform: uppercase;
-    }
-
-    .stage-receipt .ln,
-    .stage-receipt .total {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      align-items: baseline;
-    }
-
-    .stage-receipt .ln {
-      padding: 3px 0;
-      border-bottom: 0.5px dotted var(--line-2);
-    }
-
-    .stage-receipt .ln .lbl {
-      font-size: 11px;
-      color: var(--ink-2);
-    }
-
-    .stage-receipt .ln .v {
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--ink);
-      white-space: nowrap;
-    }
-
-    .stage-receipt .total {
-      margin-top: 10px;
-      padding-top: 10px;
-      border-top: 1.5px solid var(--ink);
-    }
-
-    .stage-receipt .total .lbl,
-    .stage-receipt .total .v {
-      font-family: var(--disp);
-      font-style: italic;
-    }
-
-    .stage-receipt .total .lbl { font-size: 15px; }
-    .stage-receipt .total .v {
-      font-size: 26px;
-      letter-spacing: -0.025em;
-      color: var(--clay);
-    }
-
-    .stage-receipt .stub {
-      margin: 14px -22px -20px;
-      padding: 10px 22px;
-      background: var(--clay-soft);
-      border-top: 0.5px dashed var(--clay);
-      font-size: 9px;
-      letter-spacing: 0.16em;
-      color: var(--clay-deep);
-      text-transform: uppercase;
-      text-align: center;
-    }
-
-    .float-quote {
-      position: absolute;
-      padding: 8px 14px;
-      background: var(--card);
-      border-radius: 999px;
-      border: 0.5px solid var(--line);
-      font-family: var(--disp);
-      font-style: italic;
-      font-size: 12px;
-      color: var(--ink-2);
-      box-shadow: 0 6px 16px rgba(42, 36, 25, 0.08);
-      white-space: nowrap;
-    }
-
-    .float-quote.q1 { left: 4%; bottom: 22%; }
-    .float-quote.q2 { right: 4%; top: 18%; }
-    .float-quote.q3 { left: 12%; top: 14%; }
-
-    .counters {
+    .button {
+      display: inline-block;
       background: var(--ink);
       color: var(--paper);
-      padding: 56px 32px;
+      text-decoration: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 16px;
+      border: 0;
+      cursor: pointer;
+    }
+    .button:hover { background: #000; }
+    .quiet-link {
+      margin-left: 18px;
+      font-size: 16px;
+      color: var(--ink-2);
     }
 
-    .counters .inner {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 32px;
+    /* Mock cards drawn from the app's own screens */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 18px 20px;
+      font-size: 15px;
     }
-
-    .counter .lbl {
-      display: block;
-      font-family: var(--mono);
-      font-size: 10px;
-      letter-spacing: 0.16em;
-      color: rgba(244, 239, 227, 0.55);
-      text-transform: uppercase;
+    .card .card-title {
+      font-family: var(--serif);
+      font-size: 20px;
+      margin: 0 0 2px;
     }
-
-    .counter .num {
-      margin-top: 10px;
-      font-family: var(--disp);
-      font-style: italic;
-      font-size: 64px;
-      line-height: 0.95;
-      letter-spacing: -0.03em;
-      color: var(--paper);
+    .card .muted { color: var(--ink-3); font-size: 13px; }
+    .row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 0;
+      border-top: 1px solid var(--line);
+    }
+    .row:first-of-type { border-top: 0; }
+    .row .name { flex: 1; min-width: 0; }
+    .row .num { font-variant-numeric: tabular-nums; color: var(--ink-2); white-space: nowrap; }
+    .sw {
+      width: 34px;
+      height: 34px;
+      border-radius: 6px;
+      flex: none;
+    }
+    .rows { margin-top: 12px; }
+    .ok { color: var(--sage-deep); }
+    .short { color: var(--clay-deep); }
+    .total {
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid var(--ink);
+      margin-top: 4px;
+      padding-top: 12px;
+      font-weight: 600;
       font-variant-numeric: tabular-nums;
     }
-
-    .counter .num .accent { color: var(--clay); }
-
-    .counter .meta {
-      margin-top: 8px;
-      font-family: var(--disp);
-      font-style: italic;
-      font-size: 14px;
-      line-height: 1.4;
-      color: rgba(244, 239, 227, 0.75);
-    }
-
-    .story-section {
-      padding: 96px 32px 24px;
-    }
-
-    .story-section .head {
-      max-width: 1180px;
-      margin: 0 auto 56px;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
-      gap: 48px;
-      align-items: end;
-    }
-
-    .story-section .head .eyebrow {
-      color: var(--ink-3);
-    }
-
-    .story-section .head h2,
-    .how-rail .head h2,
-    .pricing .head h2,
-    .signup h2 {
+    .note {
       margin: 12px 0 0;
-      font-family: var(--disp);
-      font-style: italic;
-      font-size: 52px;
-      line-height: 1;
-      letter-spacing: -0.035em;
+      font-size: 13px;
+      color: var(--ink-3);
     }
 
-    .story-section .head p,
-    .how-rail .head p,
-    .signup p {
-      margin: 0;
-      font-family: var(--disp);
-      font-size: 18px;
-      line-height: 1.55;
-      color: var(--ink-2);
-      max-width: 560px;
+    /* Sections */
+    section.part {
+      border-top: 1px solid var(--line);
     }
-
-    .story-row {
-      max-width: 1180px;
-      margin: 0 auto 64px;
+    section.part .wrap {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      align-items: center;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 56px;
+      align-items: start;
+      padding-top: 64px;
+      padding-bottom: 64px;
     }
-
-    .story-row:nth-child(even) .viz { order: 2; }
-
-    .story-row .copy .eyebrow {
-      color: var(--ink-3);
-    }
-
-    .story-row .copy h3 {
-      margin: 8px 0 0;
-      font-family: var(--disp);
-      font-style: italic;
-      font-size: 48px;
-      line-height: 0.98;
-      letter-spacing: -0.035em;
-    }
-
-    .story-row .copy h3 .accent { color: var(--clay); }
-
-    .story-row .copy p {
-      margin: 14px 0 0;
-      max-width: 440px;
-      font-family: var(--disp);
-      font-size: 16px;
-      line-height: 1.55;
-      color: var(--ink-2);
-    }
-
-    .viz-stack {
-      position: relative;
-      aspect-ratio: 1.1;
-      max-width: 440px;
-      margin: 0 auto;
-      perspective: 1400px;
-    }
-
-    .viz-stack .card {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      width: 64%;
-      aspect-ratio: 0.78;
-      border-radius: 8px;
-      box-shadow: 0 16px 40px rgba(42, 36, 25, 0.16);
-      transform-origin: center;
-    }
-
-    .viz-stack .card:nth-child(1) { background: #506b8a; transform: translate(-50%, -50%) rotate(-12deg) translate(-12%, -4%); }
-    .viz-stack .card:nth-child(2) { background: #8e6b4f; transform: translate(-50%, -50%) rotate(-4deg) translate(-2%, 2%); }
-    .viz-stack .card:nth-child(3) { background: #4a584e; transform: translate(-50%, -50%) rotate(5deg) translate(10%, 0%); }
-    .viz-stack .card.flip-card {
-      transform: translate(-50%, -50%) rotate(2deg) translate(20%, 14%);
-      background: transparent;
-      box-shadow: none;
-      overflow: visible;
-    }
-
-    .viz-stack .flip-inner {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      transform-style: preserve-3d;
-      animation: swatch-flip 6.5s ease-in-out infinite;
-    }
-
-    .viz-stack .flip-face {
-      position: absolute;
-      inset: 0;
-      border-radius: 8px;
-      backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
-      overflow: hidden;
-      box-shadow: 0 16px 40px rgba(42, 36, 25, 0.16);
-    }
-
-    .viz-stack .flip-front {
-      background:
-        radial-gradient(circle at 26% 20%, rgba(255,255,255,0.18), transparent 22%),
-        linear-gradient(135deg, #d9e4f2 0%, #b9cce6 100%);
-    }
-
-    .viz-stack .flip-front::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(90deg, rgba(255,255,255,0.12) 0 1px, transparent 1px 18px),
-        linear-gradient(0deg, rgba(255,255,255,0.08) 0 1px, transparent 1px 18px);
-      opacity: 0.25;
-    }
-
-    .viz-stack .flip-back {
-      background: var(--card);
-      border: 0.5px solid var(--line);
-      padding: 18px 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      transform: rotateY(180deg);
-    }
-
-    .viz-stack .snap .meta {
-      font-family: var(--mono);
-      font-size: 10px;
-      color: var(--ink-3);
-    }
-
-    .viz-stack .snap .nm {
-      font-family: var(--disp);
-      font-style: italic;
-      font-size: 18px;
-      line-height: 1.1;
-    }
-
-    .viz-stack .snap .nums {
-      margin-top: auto;
-      font-family: var(--disp);
-      font-style: italic;
-      font-size: 24px;
-      color: var(--clay);
-    }
-
-    .viz-stack:hover .flip-inner {
-      animation-play-state: paused;
-      transform: rotateY(180deg);
-    }
-
-    .viz-project {
-      max-width: 420px;
-      margin: 0 auto;
-      padding: 22px;
-      background: var(--card);
-      border: 0.5px solid var(--line);
-      border-radius: 18px;
-      box-shadow: 0 16px 40px rgba(42, 36, 25, 0.08);
-    }
-
-    .viz-project .top {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-    }
-
-    .viz-project .sw {
-      width: 44px;
-      height: 58px;
-      border-radius: 6px;
-      background: linear-gradient(135deg, #506b8a 0%, #2d3e4f 100%);
-      flex-shrink: 0;
-    }
-
-    .viz-project .ttl {
-      font-family: var(--disp);
-      font-style: italic;
-      font-size: 20px;
-      line-height: 1.05;
-    }
-
-    .viz-project .status {
-      display: inline-flex;
-      gap: 5px;
-      align-items: center;
-      padding: 3px 8px;
-      border-radius: 999px;
-      background: var(--paper-2);
-      margin-top: 6px;
-      font-family: var(--mono);
-      font-size: 8px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--ink-2);
-    }
-
-    .viz-project .status .dot {
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: var(--ink-3);
-    }
-
-    .viz-project .reqs {
-      display: grid;
-      gap: 8px;
-      margin-top: 16px;
-    }
-
-    .viz-project .req {
-      padding: 10px 12px;
-      background: var(--clay-soft);
-      border-radius: 10px;
-      border-left: 2px solid var(--clay);
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      align-items: baseline;
-    }
-
-    .viz-project .req .role {
-      font-family: var(--mono);
-      font-size: 8px;
-      letter-spacing: 0.1em;
-      color: var(--clay-deep);
-      text-transform: uppercase;
-      display: block;
-    }
-
-    .viz-project .req .sub {
-      font-size: 11px;
-      color: var(--clay-deep);
-      margin-top: 2px;
-    }
-
-    .viz-project .req .amt {
-      font-family: var(--disp);
-      font-style: italic;
-      font-size: 18px;
-      color: var(--clay-deep);
-      white-space: nowrap;
-    }
-
-    .viz-project .foot {
-      margin-top: 14px;
-      padding-top: 10px;
-      border-top: 0.5px solid var(--line-2);
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-    }
-
-    .viz-project .foot .lbl {
-      font-family: var(--mono);
-      font-size: 8px;
-      letter-spacing: 0.12em;
-      color: var(--ink-3);
-      text-transform: uppercase;
-    }
-
-    .viz-project .foot .v {
-      font-family: var(--disp);
-      font-style: italic;
-      font-size: 18px;
-    }
-
-    .viz-cost {
-      background: var(--card);
-      border: 0.5px dashed var(--ink-2);
-      border-radius: 8px;
-      padding: 28px 26px;
-      max-width: 380px;
-      margin: 0 auto;
-      box-shadow: 0 16px 40px rgba(42, 36, 25, 0.08);
-    }
-
-    .viz-cost .hdr,
-    .ticker .item::before,
-    .pricing .head .eyebrow,
-    .signup .eyebrow {
-      font-family: var(--mono);
-    }
-
-    .viz-cost .hdr {
-      font-size: 10px;
-      letter-spacing: 0.18em;
-      color: var(--ink-3);
-      text-align: center;
-    }
-
-    .viz-cost .bar {
-      display: flex;
-      height: 14px;
-      border-radius: 2px;
-      overflow: hidden;
-      margin-top: 18px;
-      background: var(--paper-2);
-    }
-
-    .viz-cost .bar .seg.mat { background: var(--clay); width: 45%; }
-    .viz-cost .bar .seg.lab { background: var(--sage); width: 47%; }
-    .viz-cost .bar .seg.pat { background: var(--clay-deep); width: 8%; }
-
-    .viz-cost .legend {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
-      margin-top: 18px;
-    }
-
-    .viz-cost .legend .col {
-      padding-top: 8px;
-      border-top: 0.5px solid var(--line);
-    }
-
-    .viz-cost .legend .lbl {
-      display: block;
-      font-family: var(--mono);
-      font-size: 9px;
-      letter-spacing: 0.12em;
-      color: var(--ink-3);
-      text-transform: uppercase;
-    }
-
-    .viz-cost .legend .v {
-      margin-top: 4px;
-      font-family: var(--disp);
-      font-style: italic;
-      font-size: 18px;
-    }
-
-    .viz-cost .total {
-      margin-top: 18px;
-      padding-top: 14px;
-      border-top: 1.5px solid var(--ink);
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-    }
-
-    .viz-cost .total .lbl,
-    .viz-cost .total .v {
-      font-family: var(--disp);
-      font-style: italic;
-    }
-
-    .viz-cost .total .v {
-      font-size: 28px;
-      color: var(--clay);
-    }
-
-    .how-rail {
-      padding: 24px 32px 88px;
-    }
-
-    .how-rail .head {
-      max-width: 1180px;
-      margin: 0 auto 48px;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
-      gap: 48px;
-      align-items: end;
-    }
-
-    .how-rail .head .eyebrow {
-      color: var(--ink-3);
-    }
-
-    .how-rail .steps {
-      max-width: 1180px;
-      margin: 0 auto;
-      position: relative;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 44px;
-    }
-
-    .how-rail .steps::before {
-      content: "";
-      position: absolute;
-      left: 16%;
-      right: 16%;
-      top: 42px;
-      height: 1px;
-      background-image: linear-gradient(90deg, rgba(42, 36, 25, 0.24) 50%, transparent 50%);
-      background-size: 7px 1px;
-    }
-
-    .how-rail .step {
-      position: relative;
-      z-index: 1;
-    }
-
-    .how-rail .marker {
-      width: 84px;
-      height: 84px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      background: rgba(252, 250, 244, 0.96);
-      box-shadow: 0 14px 32px rgba(42, 36, 25, 0.08);
-      font-family: var(--disp);
-      font-style: italic;
-      font-size: 24px;
-      color: var(--clay);
-    }
-
-    .how-rail h3 {
-      margin: 28px 0 0;
-      font-family: var(--disp);
-      font-style: italic;
-      font-size: 34px;
-      line-height: 1;
-      letter-spacing: -0.03em;
-    }
-
-    .how-rail p {
-      margin: 14px 0 0;
-      max-width: 320px;
-      font-size: 14px;
-      line-height: 1.65;
-      color: var(--ink-2);
-    }
-
-    .ticker-wrap {
-      padding: 56px 0;
-      background: var(--paper-2);
-      overflow: hidden;
-    }
-
-    .ticker {
-      display: flex;
-      gap: 60px;
-      width: max-content;
-      padding-left: 32px;
-      animation: ticker-scroll 35s linear infinite;
-    }
-
-    .ticker .item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-family: var(--disp);
-      font-style: italic;
+    h2 {
       font-size: 32px;
-      white-space: nowrap;
-      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+    section.part p {
+      color: var(--ink-2);
+      margin: 0 0 12px;
+      max-width: 32em;
     }
 
-    .ticker .item::before {
-      content: "";
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--clay);
+    /* Pricing */
+    section.part#pricing .wrap {
+      display: block;
+      padding-top: 64px;
+      padding-bottom: 72px;
     }
-
-    .pricing {
-      padding: 96px 32px;
+    #pricing > .wrap > p {
+      color: var(--ink-2);
+      margin: 0 0 32px;
+      max-width: 36em;
     }
-
-    .pricing .head {
-      text-align: center;
-      margin-bottom: 48px;
-    }
-
-    .pricing .head .eyebrow,
-    .signup .eyebrow {
-      font-size: 11px;
-      letter-spacing: 0.18em;
-      color: var(--ink-3);
-      text-transform: uppercase;
-    }
-
-    .pricing .head h2 .accent { color: var(--clay); }
-
     .plans {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 18px;
-      max-width: 800px;
-      margin: 0 auto;
+      gap: 20px;
     }
-
     .plan {
-      padding: 32px;
       background: var(--card);
-      border-radius: 16px;
-      border: 0.5px solid var(--line);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 24px 26px;
     }
-
-    .plan.pro {
-      background: var(--clay-soft);
-      border-color: rgba(185, 95, 60, 0.3);
-      position: relative;
-    }
-
-    .plan .eyebrow {
-      color: var(--ink-3);
-    }
-
-    .plan.pro .eyebrow {
-      color: var(--clay-deep);
-    }
-
-    .plan .nm {
-      margin-top: 10px;
-      font-family: var(--disp);
-      font-style: italic;
-      font-size: 36px;
-      letter-spacing: -0.035em;
-    }
-
-    .plan.pro .nm em { color: var(--clay); }
-
+    .plan h3 { font-size: 24px; }
     .plan .price {
-      margin-top: 18px;
-      font-family: var(--disp);
-      font-style: italic;
-      font-size: 44px;
-      line-height: 1;
-      letter-spacing: -0.03em;
+      margin: 6px 0 18px;
+      color: var(--ink-2);
+      font-size: 15px;
     }
-
-    .plan.pro .price {
-      color: var(--clay-deep);
+    .plan .price strong {
+      color: var(--ink);
+      font-size: 20px;
+      font-weight: 600;
     }
-
-    .plan .price .small {
-      font-family: var(--body);
-      font-size: 14px;
-      color: var(--ink-3);
-      margin-left: 4px;
-      font-style: normal;
-    }
-
     .plan ul {
-      list-style: none;
-      padding: 0;
-      margin: 24px 0 0;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .plan ul li {
-      display: flex;
-      gap: 10px;
-      font-size: 14px;
-      line-height: 1.5;
+      margin: 0;
+      padding-left: 18px;
+      font-size: 15px;
       color: var(--ink-2);
     }
+    .plan li { margin-bottom: 7px; }
 
-    .plan ul li::before {
-      content: "+";
-      color: var(--sage);
-      font-family: var(--mono);
-      font-weight: 500;
-      flex-shrink: 0;
-    }
-
-    .plan.pro ul li::before { color: var(--clay); }
-
-    .plan .save {
-      position: absolute;
-      top: -10px;
-      right: 24px;
-      padding: 5px 12px;
-      border-radius: 999px;
-      background: var(--clay);
+    /* Sign-up */
+    #signup {
+      background: var(--ink);
       color: var(--paper);
-      font-family: var(--mono);
-      font-size: 10px;
-      letter-spacing: 0.08em;
     }
-
-    .signup {
-      padding: 100px 32px;
-      background: var(--sage);
-      color: var(--paper);
-      position: relative;
-      overflow: hidden;
+    #signup .wrap {
+      padding-top: 56px;
+      padding-bottom: 60px;
     }
-
-    .signup::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image:
-        repeating-linear-gradient(0deg, rgba(255,255,255,0.04) 0 1px, transparent 1px 4px),
-        repeating-linear-gradient(90deg, rgba(255,255,255,0.04) 0 1px, transparent 1px 4px);
-    }
-
-    .signup .inner {
-      max-width: 740px;
-      margin: 0 auto;
-      position: relative;
-      text-align: center;
-    }
-
-    .signup .eyebrow {
-      color: rgba(244, 239, 227, 0.65);
-    }
-
-    .signup h2 {
-      line-height: 0.95;
-      margin-bottom: 14px;
-    }
-
-    .signup p {
-      color: rgba(244, 239, 227, 0.85);
-      max-width: 540px;
-      margin-inline: auto;
-    }
-
-    .signup form {
-      margin-top: 36px;
-      display: flex;
-      gap: 8px;
-      max-width: 460px;
-      margin-inline: auto;
-    }
-
-    .signup input {
+    #signup p { color: rgba(244, 239, 227, 0.75); margin: 0 0 22px; max-width: 34em; }
+    #signup form { display: flex; gap: 10px; max-width: 460px; }
+    #signup input {
       flex: 1;
-      padding: 14px 18px;
-      border-radius: 999px;
-      background: rgba(244, 239, 227, 0.08);
-      border: 0.5px solid rgba(244, 239, 227, 0.2);
+      min-width: 0;
+      padding: 12px 14px;
+      border-radius: 8px;
+      border: 1px solid rgba(244, 239, 227, 0.3);
+      background: transparent;
       color: var(--paper);
-      appearance: none;
     }
+    #signup input::placeholder { color: rgba(244, 239, 227, 0.5); }
+    #signup .button { background: var(--paper); color: var(--ink); }
 
-    .signup input::placeholder {
-      color: rgba(244, 239, 227, 0.5);
+    footer .wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding-top: 26px;
+      padding-bottom: 32px;
+      font-size: 14px;
+      color: var(--ink-3);
     }
+    footer nav { display: flex; gap: 18px; flex-wrap: wrap; }
+    footer a { text-decoration: none; }
+    footer a:hover { color: var(--ink); }
 
-    .signup button {
-      padding: 14px 24px;
-      border-radius: 999px;
-      background: var(--paper);
-      color: var(--ink);
-      font-size: 15px;
-      font-weight: 500;
-      border: 0;
-      white-space: nowrap;
-      cursor: pointer;
-    }
-
-    .footer {
-      padding: 40px 32px;
-      background: var(--paper-2);
-      border-top: 0.5px solid var(--line);
-    }
-
-    .footer .wm { font-size: 24px; }
-    @keyframes pulse {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(185, 95, 60, 0.6); }
-      50% { box-shadow: 0 0 0 6px rgba(185, 95, 60, 0); }
-    }
-
-    @keyframes rise-line {
-      to { transform: translateY(0); }
-    }
-
-    @keyframes tile-drift {
-      0%, 100% { transform: translateY(0) scale(1); }
-      50% { transform: translateY(-6px) scale(1.02); }
-    }
-
-    @keyframes ticker-scroll {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
-    }
-
-    @keyframes swatch-flip {
-      0%, 18% { transform: rotateY(0deg); }
-      30%, 70% { transform: rotateY(180deg); }
-      82%, 100% { transform: rotateY(360deg); }
-    }
-
-    @media (max-width: 920px) {
-      .topnav .links { display: none; }
-      .hero .inner,
-      .story-section .head,
-      .how-rail .head,
-      .story-row {
+    @media (max-width: 760px) {
+      .wrap { padding: 0 16px; }
+      header nav a:not(:last-child) { display: none; }
+      .intro,
+      section.part .wrap,
+      .plans {
         grid-template-columns: 1fr;
         gap: 32px;
       }
-      .hero-stage { height: 520px; }
-      .counters .inner,
-      .plans,
-      .how-rail .steps {
-        grid-template-columns: 1fr 1fr;
-      }
-      .story-row:nth-child(even) .viz { order: 0; }
-      .story-row .copy h3,
-      .story-section .head h2,
-      .how-rail .head h2,
-      .pricing .head h2,
-      .signup h2 {
-        font-size: 40px;
-      }
-      .how-rail .steps::before { display: none; }
-      .signup form { flex-direction: column; }
-    }
-
-    @media (max-width: 640px) {
-      .hero,
-      .story-section,
-      .how-rail,
-      .pricing,
-      .signup,
-      .footer,
-      .topnav,
-      .counters {
-        padding-left: 20px;
-        padding-right: 20px;
-      }
-      .hero-stage { height: 460px; }
-      .stage-stash,
-      .stage-project { display: none; }
-      .stage-receipt {
-        width: 250px;
-      }
-      .float-quote { display: none; }
-      .counters .inner,
-      .plans,
-      .how-rail .steps {
-        grid-template-columns: 1fr;
-      }
-      .ticker .item { font-size: 24px; }
-      .story-row .copy h3,
-      .story-section .head h2,
-      .how-rail .head h2,
-      .pricing .head h2,
-      .signup h2 {
-        font-size: 34px;
-      }
-      .how-rail .step p {
-        max-width: none;
-      }
+      .intro { padding-top: 40px; padding-bottom: 56px; }
+      h1 { font-size: 34px; }
+      h2 { font-size: 27px; }
+      section.part .wrap { padding-top: 48px; padding-bottom: 48px; }
+      .quiet-link { display: block; margin: 16px 0 0; }
+      #signup form { flex-direction: column; }
     }
   </style>
 </head>
 <body>
-  <nav class="topnav">
-    <div class="inner">
-      <a href="#top" class="wm">Pleat<span class="dot">.</span></a>
-      <div class="links">
-        <a href="#story">How it works</a>
+  <header>
+    <div class="wrap">
+      <a href="#top" class="wm" id="top">Pleat</a>
+      <nav>
+        <a href="#stash">How it works</a>
         <a href="#pricing">Pricing</a>
-        <a href="#signup">Updates</a>
-      </div>
-      <a href="#signup" class="cta">Join the list</a>
+        <a href="#signup">Beta</a>
+      </nav>
     </div>
-  </nav>
+  </header>
 
-  <main id="top">
-    <section class="hero">
-      <div class="inner">
-        <div class="copy">
-          <div class="eyebrow"><span class="pulse"></span>iPhone · coming 2026</div>
-          <h1>
-            <span class="ln"><span>Your sewing</span></span>
-            <span class="ln"><span>stash,</span></span>
-            <span class="ln"><span><em class="accent">organized</em></span></span>
-          </h1>
-          <p class="deck">Track your fabric stash, plan sewing projects, and calculate the real cost of every garment you make.</p>
-          <div class="ctas">
-            <a href="#signup" class="pri">Join the mailing list <span>→</span></a>
-            <a href="#story" class="sec">See how it works</a>
-          </div>
-        </div>
-
-        <div class="hero-stage" aria-hidden="true">
-          <div class="fabric-grid">
-            <div class="tile"></div><div class="tile"></div><div class="tile"></div>
-            <div class="tile"></div><div class="tile"></div><div class="tile"></div>
-            <div class="tile"></div><div class="tile"></div><div class="tile"></div>
-            <div class="tile"></div><div class="tile"></div><div class="tile"></div>
-            <div class="tile"></div><div class="tile"></div><div class="tile"></div>
-            <div class="tile"></div><div class="tile"></div><div class="tile"></div>
-          </div>
-          <div class="hero-scrim"></div>
-
-          <div class="stage-artifact stage-stash">
-            <div class="head">
-              <span class="nm">Your stash</span>
-              <span class="pill">FREE · 7 / 30</span>
-            </div>
-            <div class="stats">
-              <div class="col"><span class="lbl">fabrics</span><div class="v">7</div></div>
-              <div class="col"><span class="lbl">meters</span><div class="v">14.2</div></div>
-              <div class="col"><span class="lbl">fibers</span><div class="v">4</div></div>
-            </div>
-            <div class="row"><div class="sw" style="background:#506b8a"></div><span class="name">Indigo chambray</span><span class="len">2.1 m</span></div>
-            <div class="row"><div class="sw" style="background:#8e6b4f"></div><span class="name">Walnut linen</span><span class="len">1.1 m</span></div>
-            <div class="row"><div class="sw" style="background:#c4b59b"></div><span class="name">Oat canvas</span><span class="len">4.2 m</span></div>
-          </div>
-
-          <div class="stage-artifact stage-project">
-            <div class="top">
-              <div class="sw"></div>
-              <div class="meta">
-                <div class="ttl">Mira blouse</div>
-                <span class="status"><span class="dot"></span>Planned</span>
-              </div>
-            </div>
-            <div class="reqs">
-              <div class="req">
-                <div><span class="role">Main</span><div class="sub">drapey woven</div></div>
-                <span class="amt">1.6 m</span>
-              </div>
-              <div class="req">
-                <div><span class="role">Contrast</span><div class="sub">similar woven</div></div>
-                <span class="amt">0.3 m</span>
-              </div>
-            </div>
-            <div class="foot"><span class="lbl">Free tier</span><span class="v">2 / 3</span></div>
-          </div>
-
-          <div class="stage-artifact stage-receipt">
-            <span class="hdr">— Sample cost —</span>
-            <div class="title">Roan shirtdress</div>
-            <span class="sub">#PR-007 · May 16</span>
-            <span class="group">Materials</span>
-            <div class="ln"><span class="lbl">Indigo chambray</span><span class="v">$12.00</span></div>
-            <div class="ln"><span class="lbl">Oat canvas 1.4 m</span><span class="v">$22.40</span></div>
-            <div class="ln"><span class="lbl">Buttons · horn × 6</span><span class="v">$4.80</span></div>
-            <span class="group">Labor &amp; pattern</span>
-            <div class="ln"><span class="lbl">1h 46m @ $25/h</span><span class="v">$44.20</span></div>
-            <div class="ln"><span class="lbl">Closet Core · Roan</span><span class="v">$8.00</span></div>
-            <div class="total"><span class="lbl">True cost</span><span class="v">$91.40</span></div>
-            <div class="stub">Suggested sale · $228.50</div>
-          </div>
-
-          <div class="float-quote q1">2.4 m walnut linen</div>
-          <div class="float-quote q2">$25 / hour</div>
-          <div class="float-quote q3">+1h 46m logged</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="story-section" id="story">
-      <div class="head">
-        <div>
-          <div class="eyebrow">01 / what you’ll do</div>
-          <h2>Everything you need to organize sewing projects.</h2>
-        </div>
-        <p>Fabric tracking, project planning, and cost calculation in one app. Built for sewists, not accountants.</p>
+  <main>
+    <div class="wrap intro">
+      <div>
+        <p class="status">iPhone app · in beta</p>
+        <h1>Know what’s on your fabric shelf, and what a make really costs.</h1>
+        <p class="lede">Pleat keeps your fabric, patterns and notions in one place. When you plan a project, it shows which fabric you already have enough of. When you finish, it adds up fabric, notions, the pattern and your hours.</p>
+        <a class="button" href="#signup">Get a beta invite</a>
+        <a class="quiet-link" href="#pricing">Pricing</a>
       </div>
 
-      <div class="story-row">
-        <div class="viz">
-          <div class="viz-stack">
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card flip-card">
-              <div class="flip-inner">
-                <div class="flip-face flip-front"></div>
-                <div class="flip-face flip-back snap">
-                  <span class="meta">B-3 · 2.1 m</span>
-                  <span class="nm">Indigo chambray</span>
-                  <span class="nums">$14/m</span>
-                </div>
-              </div>
-            </div>
-          </div>
+      <div class="card" aria-hidden="true">
+        <p class="card-title">Stash</p>
+        <span class="muted">7 fabrics · 14.2 m</span>
+        <div class="rows">
+          <div class="row"><div class="sw" style="background:#506b8a"></div><span class="name">Indigo chambray<br><span class="muted">Cotton · 140 cm wide</span></span><span class="num">2.1 m</span></div>
+          <div class="row"><div class="sw" style="background:#8e6b4f"></div><span class="name">Walnut linen<br><span class="muted">Linen · 145 cm wide</span></span><span class="num">1.1 m</span></div>
+          <div class="row"><div class="sw" style="background:#c4b59b"></div><span class="name">Oat canvas<br><span class="muted">Cotton · 150 cm wide</span></span><span class="num">4.2 m</span></div>
+          <div class="row"><div class="sw" style="background:#6b7a52"></div><span class="name">Olive twill<br><span class="muted">Cotton · 148 cm wide</span></span><span class="num">2.4 m</span></div>
         </div>
-        <div class="copy">
-          <span class="eyebrow">Track your stash</span>
-          <h3>The <span class="accent">whole</span> shelf, searchable in seconds.</h3>
-          <p>Add fabric with a photo, length, and fiber type. Search your stash in seconds.</p>
-        </div>
-      </div>
-
-      <div class="story-row">
-        <div class="viz">
-          <div class="viz-project">
-            <div class="top">
-              <div class="sw"></div>
-              <div>
-                <div class="ttl">Mira blouse</div>
-                <span class="status"><span class="dot"></span>Planned</span>
-              </div>
-            </div>
-            <div class="reqs">
-              <div class="req">
-                <div><span class="role">Main</span><div class="sub">drapey woven · navy</div></div>
-                <span class="amt">1.6 m</span>
-              </div>
-              <div class="req">
-                <div><span class="role">Contrast</span><div class="sub">similar woven · rust</div></div>
-                <span class="amt">0.3 m</span>
-              </div>
-            </div>
-            <div class="foot"><span class="lbl">Project slots</span><span class="v">2 / 3</span></div>
-          </div>
-        </div>
-        <div class="copy">
-          <span class="eyebrow">Plan a project</span>
-          <h3>Check what already <span class="accent">fits</span>.</h3>
-          <p>Plan a sewing project and check whether you already have the right fabric in your stash.</p>
-        </div>
-      </div>
-
-      <div class="story-row">
-        <div class="viz">
-          <div class="viz-cost">
-            <span class="hdr">— TRUE COST —</span>
-            <div class="bar">
-              <div class="seg mat"></div>
-              <div class="seg lab"></div>
-              <div class="seg pat"></div>
-            </div>
-            <div class="legend">
-              <div class="col"><span class="lbl">Materials</span><span class="v">$42.00</span></div>
-              <div class="col"><span class="lbl">Labor</span><span class="v">$44.20</span></div>
-              <div class="col"><span class="lbl">Pattern</span><span class="v">$8.00</span></div>
-            </div>
-            <div class="total"><span class="lbl">Total</span><span class="v">$94.20</span></div>
-          </div>
-        </div>
-        <div class="copy">
-          <span class="eyebrow">Know the real cost</span>
-          <h3>Honest math, every <span class="accent">time</span>.</h3>
-          <p>See the real cost of every garment, including labor time.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="how-rail">
-      <div class="head">
-        <div>
-          <div class="eyebrow">02 / how it works</div>
-          <h2>Simple enough to use while sewing.</h2>
-        </div>
-        <p>No setup and no complicated workflow.</p>
-      </div>
-
-      <div class="steps">
-        <article class="step">
-          <div class="marker">1.</div>
-          <h3>Snap. Add.</h3>
-          <p>Photograph fabric in-store or at home. Add length, color, fiber, and where it lives in one pass.</p>
-        </article>
-        <article class="step">
-          <div class="marker">2.</div>
-          <h3>Plan. Match.</h3>
-          <p>Describe a project the way sewists actually think. Pleat shows what already fits, or records what still needs sourcing.</p>
-        </article>
-        <article class="step">
-          <div class="marker">3.</div>
-          <h3>Log. Price.</h3>
-          <p>Track hours, materials, notions, and pattern cost. Then set a price you can defend without guessing.</p>
-        </article>
-      </div>
-    </section>
-
-    <div class="ticker-wrap" aria-hidden="true">
-      <div class="ticker">
-        <div class="item">photo-first stash</div>
-        <div class="item">project planning</div>
-        <div class="item">real labor cost</div>
-        <div class="item">sale price math</div>
-        <div class="item">scan before you buy</div>
-        <div class="item">live labor timer</div>
-        <div class="item">CSV import &amp; export</div>
-        <div class="item">photo-first stash</div>
-        <div class="item">project planning</div>
-        <div class="item">real labor cost</div>
-        <div class="item">sale price math</div>
-        <div class="item">scan before you buy</div>
-        <div class="item">live labor timer</div>
-        <div class="item">CSV import &amp; export</div>
       </div>
     </div>
 
-    <section class="pricing" id="pricing">
-      <div class="head">
-        <span class="eyebrow">03 / pricing</span>
-        <h2>Free to start.<br><span class="accent">Pleat+</span> when you outgrow it.</h2>
-      </div>
-      <div class="plans">
-        <div class="plan">
-          <span class="eyebrow">FREE · KEEP FOREVER</span>
-          <div class="nm">Pleat</div>
-          <div class="price">$0<span class="small">/forever</span></div>
-          <ul>
-            <li><span>Stash up to <strong>30 fabrics</strong>, 10 notions, 5 patterns, and <strong>3 active projects</strong></span></li>
-            <li>Photo-first add &amp; edit, CSV import</li>
-            <li>Scan fabric in the shop to check your stash before you buy</li>
-            <li>Project requirements and material planning</li>
-            <li>Manual time logging</li>
-            <li>True cost total on every project</li>
-            <li>Cost breakdown and sale price are Pleat+</li>
-          </ul>
+    <section class="part" id="stash">
+      <div class="wrap">
+        <div>
+          <h2>Your stash, with lengths</h2>
+          <p>Photograph a fabric and type its length and fiber. Width, weight, where it’s stored and what you paid can wait until you have a minute.</p>
+          <p>Already keep a spreadsheet? Import it as CSV.</p>
         </div>
-        <div class="plan pro">
-          <span class="save">SAVE 44%</span>
-          <span class="eyebrow">PLEAT+ · EVERYTHING</span>
-          <div class="nm"><em>Pleat+</em></div>
-          <div class="price">$19.99<span class="small">/year · 14 days free</span></div>
-          <ul>
-            <li><span><strong>Unlimited</strong> fabrics, projects, notions, and patterns</span></li>
-            <li>Full cost breakdown: fabric, notions, and labor</li>
-            <li>Sale price calculator + markup slider</li>
-            <li>Profit, margin, and effective hourly rate</li>
-            <li>Live labor timer on the Lock Screen and Dynamic Island</li>
-            <li>Stats dashboard · 6-month trends</li>
-            <li>CSV export of fabrics and project prices</li>
-            <li><span>Or <strong>$2.99/mo</strong>, or <strong>$49.99 once</strong> for lifetime</span></li>
-          </ul>
+        <div>
+          <h2>Check before you buy</h2>
+          <p>In the shop, point the camera at the bolt. Pleat compares its color, and any details you set, with what you own, and tells you if something close is already at home.</p>
         </div>
       </div>
     </section>
 
-    <section class="signup" id="signup">
-      <div class="inner">
-        <span class="eyebrow">04 / join the waitlist</span>
-        <h2>Join the waitlist</h2>
-        <p>One email a month with product updates, beta invites, and progress on the app. No spam.</p>
+    <section class="part">
+      <div class="wrap">
+        <div>
+          <h2>Does the stash cover it?</h2>
+          <p>Pick a pattern, and its yardage fills in what the project needs. Each piece shows the fabric you’ve assigned, or how much is still missing.</p>
+          <p>Fabric set aside for a project stops counting as free, so you don’t promise the same linen twice.</p>
+        </div>
+        <div class="card" aria-hidden="true">
+          <p class="card-title">Mira blouse</p>
+          <span class="muted">Planned</span>
+          <div class="rows">
+            <div class="row"><span class="name">Main · drapey woven<br><span class="muted ok">Indigo chambray covers it</span></span><span class="num">1.6 m</span></div>
+            <div class="row"><span class="name">Contrast · similar woven<br><span class="muted short">Nothing assigned · 0.3 m to buy</span></span><span class="num">0.3 m</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="part">
+      <div class="wrap">
+        <div>
+          <h2>What it cost to make</h2>
+          <p>Fabric is priced by the length you used, not the whole cut. Notions, the pattern and the hours you logged go on top.</p>
+          <p>If a fabric has no price, Pleat says so instead of counting it as free. From the total it can suggest a sale price, if you sell what you make.</p>
+        </div>
+        <div class="card" aria-hidden="true">
+          <p class="card-title">Roan shirtdress</p>
+          <span class="muted">Done</span>
+          <div class="rows">
+            <div class="row"><span class="name">Indigo chambray, 1.2 m</span><span class="num">$12.00</span></div>
+            <div class="row"><span class="name">Oat canvas, 1.4 m</span><span class="num">$22.40</span></div>
+            <div class="row"><span class="name">Horn buttons × 6</span><span class="num">$4.80</span></div>
+            <div class="row"><span class="name">Pattern</span><span class="num">$8.00</span></div>
+            <div class="row"><span class="name">1 h 46 min at $25 / h</span><span class="num">$44.20</span></div>
+          </div>
+          <div class="total"><span>Total</span><span>$91.40</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="part" id="pricing">
+      <div class="wrap">
+        <h2>Pricing</h2>
+        <p>While Pleat is in beta, everything is free. After launch it works like this.</p>
+        <div class="plans">
+          <div class="plan">
+            <h3>Pleat</h3>
+            <p class="price"><strong>Free</strong></p>
+            <ul>
+              <li>Up to 30 fabrics, 10 notions, 5 patterns and 3 active projects</li>
+              <li>Add fabric by photo, or import a CSV</li>
+              <li>Check your stash in the shop</li>
+              <li>Projects with fabric requirements</li>
+              <li>Time logging by hand</li>
+              <li>Total cost of each project</li>
+            </ul>
+          </div>
+          <div class="plan">
+            <h3>Pleat+</h3>
+            <p class="price"><strong>$19.99</strong> a year, first 14 days free<br>or $2.99 a month, or $49.99 once</p>
+            <ul>
+              <li>No limits on fabrics, notions, patterns or projects</li>
+              <li>Cost broken down line by line</li>
+              <li>Sale price with markup, profit, margin and hourly rate</li>
+              <li>Timer on the Lock Screen and Dynamic Island</li>
+              <li>Stats for the last six months</li>
+              <li>CSV export of fabrics and project prices</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="signup">
+      <div class="wrap">
+        <h2>Get a beta invite</h2>
+        <p>Leave your email and you’ll get an invite to the beta. After that, one email a month at most, about what changed in the app.</p>
         <form id="signup-form">
-          <input type="email" name="email" placeholder="email@example.com" autocomplete="email" required>
-          <button type="submit">Join the list →</button>
+          <input type="email" name="email" placeholder="you@example.com" autocomplete="email" required aria-label="Email">
+          <button class="button" type="submit">Send me an invite</button>
         </form>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="inner">
-      <a href="#top" class="wm">Pleat<span class="dot">.</span></a>
-      <div class="links">
-        <a href="#story">How it works</a>
-        <a href="#pricing">Pricing</a>
-        <a href="mailto:hello@pleats.app">Email</a>
+  <footer>
+    <div class="wrap">
+      <span>Pleat</span>
+      <nav>
+        <a href="mailto:hello@pleats.app">hello@pleats.app</a>
         <a href="#">Privacy</a>
         <a href="#">Terms</a>
-      </div>
+      </nav>
     </div>
   </footer>
 
   <script>
-    const counterIO = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        const el = entry.target;
-        const target = parseInt(el.dataset.target, 10);
-        const duration = 1400;
-        const start = performance.now();
-
-        function tick(now) {
-          const progress = Math.min(1, (now - start) / duration);
-          const eased = 1 - Math.pow(1 - progress, 3);
-          el.textContent = Math.round(target * eased).toLocaleString();
-          if (progress < 1) requestAnimationFrame(tick);
-        }
-
-        requestAnimationFrame(tick);
-        counterIO.unobserve(el);
-      });
-    }, { threshold: 0.5 });
-
-    document.querySelectorAll(".n").forEach((el) => counterIO.observe(el));
-
     document.getElementById("signup-form").addEventListener("submit", (event) => {
       event.preventDefault();
       const button = event.currentTarget.querySelector("button");
-      button.textContent = "You’re on the list ✓";
+      button.textContent = "Thanks, you’re on the list";
       button.disabled = true;
-      button.style.opacity = "0.85";
     });
   </script>
 </body>
