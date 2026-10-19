@@ -2,7 +2,7 @@
 // (Accept: text/markdown). Everything else is the static site as is.
 // Cloudflare's own Markdown for Agents needs a Pro plan; this zone is Free.
 
-const CONTENT_SIGNAL = "search=yes, ai-input=yes, ai-train=no";
+const CONTENT_SIGNAL = "search=yes, ai-input=yes, ai-train=yes";
 
 function markdownPath(pathname) {
   if (pathname === "/" || pathname === "/index.html") return "/index.md";

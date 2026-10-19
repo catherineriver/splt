@@ -1,29 +1,9 @@
 # Pleat — https://plts.app
-# Content Signals (https://contentsignals.org): search engines and AI answers
-# may read and cite this site; it may not be used to train AI models.
+# Content Signals (https://contentsignals.org): search engines, AI answers
+# and AI training may all use this site.
 
 User-Agent: *
-Content-Signal: search=yes, ai-input=yes, ai-train=no
-Allow: /
-
-# Crawlers that collect training data
-User-Agent: GPTBot
-User-Agent: ClaudeBot
-User-Agent: CCBot
-User-Agent: Google-Extended
-User-Agent: Applebot-Extended
-User-Agent: meta-externalagent
-User-Agent: Bytespider
-Disallow: /
-
-# Search and answer agents, fetches on a person's request
-User-Agent: OAI-SearchBot
-User-Agent: ChatGPT-User
-User-Agent: Claude-SearchBot
-User-Agent: Claude-User
-User-Agent: PerplexityBot
-User-Agent: Perplexity-User
-Content-Signal: search=yes, ai-input=yes, ai-train=no
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Allow: /
 
 Sitemap: https://plts.app/sitemap.xml

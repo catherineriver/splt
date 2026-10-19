@@ -1,6 +1,6 @@
 # Pleat
 
-> Pleat is an iPhone app for people who sew. It keeps a fabric stash with lengths, checks the stash before you buy, plans projects against it, and adds up what a make really cost (fabric by the length used, notions, the pattern and logged hours). In beta; free during the beta. Made by one developer, Ekaterina Baliasnikova.
+> Pleat is a fabric stash app for iPhone: a sewing inventory and project planner for people who sew. It keeps a fabric stash with lengths, checks the stash before you buy, plans projects against it, and adds up what a make really cost (fabric by the length used, notions, the pattern and logged hours). In beta; free during the beta. Made by one developer, Ekaterina Baliasnikova.
 
 Key facts:
 - Platform: iPhone only (iOS 18 or later). No account, no sync: data stays on the device.
@@ -16,3 +16,9 @@ Every page is also available as Markdown: request it with `Accept: text/markdown
 - [Support](https://plts.app/support.md): common questions — where data is stored, recovering deleted items, moving to a new iPhone, cancelling and restoring Pleat+, refunds
 - [Privacy Policy](https://plts.app/privacy.md): what leaves the device (anonymous usage counts only) and what does not
 - [Terms of Use](https://plts.app/terms.md): subscriptions, trial, refunds and the licence
+
+## Guides
+
+- [How to keep a fabric stash inventory](https://plts.app/guides/fabric-stash-inventory.md): what to record for each fabric, keeping it current, spreadsheet vs app
+- [Do I have enough fabric for this pattern?](https://plts.app/guides/enough-fabric-for-a-pattern.md): reading a yardage chart by size and width; shrinkage, nap, one-way prints, plaid matching; metres and yards
+- [How to work out what a sewing project cost](https://plts.app/guides/sewing-project-cost.md): fabric by length used, notions, pattern and hours, with a worked example; markup vs margin

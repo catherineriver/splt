@@ -1,8 +1,8 @@
-# Pleat — stop buying fabric you already own
+# Pleat — fabric stash app for iPhone: sewing inventory, project planning and cost
 
-iPhone app · free during the beta
+Fabric stash app for iPhone · free during the beta
 
-Pleat keeps your whole stash on your iPhone. Check it in the shop before you buy, see whether a project is covered before you cut, and know what each make really cost when it's done.
+**Stop buying fabric you already own.** Pleat is a fabric stash organizer for people who sew. It keeps your fabric, patterns and notions on your iPhone. Check it in the shop before you buy, see whether a project is covered before you cut, and know what each make really cost when it's done.
 
 - No account
 - Your stash stays on your phone
@@ -68,6 +68,7 @@ During the beta, everything is free. After launch it works like this.
 - **What happens to my data if I change phones?** Your stash is part of your normal iPhone backup, through iCloud Backup or your computer. Restore the backup and it comes with you. Pleat has no sync of its own yet.
 - **Metres or yards? Dollars or euros?** Either. You pick units and currency when you set up the app, and you can change them in Settings.
 - **What's free after the beta?** The free plan keeps up to 30 fabrics, 10 notions, 5 patterns and 3 active projects, with the shop check, planning and the total cost of each project. Pleat+ lifts the limits and adds the line-by-line cost, sale price, timer, stats and export.
+- **I already keep my stash in a spreadsheet. Why switch?** Import the spreadsheet as CSV and keep it. What a spreadsheet can't do: check a bolt against your stash from the shop with the camera, hold fabric reserved for a project so it stops counting as free, and add up a make from the length you actually used.
 - **Is it on Android or iPad?** Not for now. Pleat is made for iPhone.
 
 ## Get a beta invite

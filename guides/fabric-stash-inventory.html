@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to keep a fabric stash inventory — Pleat</title>
+  <meta name="description" content="What to record for each fabric in your sewing stash (photo, length, fiber, width, weight, location, price), how to keep it current, and spreadsheet vs app.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #f0e5d2;
+      --paper-3: #dccdb3;
+      --card: #fffbf2;
+      --ink: #261c15;
+      --ink-2: #5e4e42;
+      --ink-3: #8b8175;
+      --line: rgba(38, 28, 21, 0.14);
+      --clay: #a8482a;
+      --clay-deep: #86381e;
+      --serif: "Fraunces", Georgia, serif;
+      --sans: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 17px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--clay-deep); text-underline-offset: 3px; }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+    header {
+      background: rgba(240, 229, 210, 0.92);
+      border-bottom: 1px solid var(--line);
+    }
+    header .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
+    .wm {
+      font-family: var(--serif);
+      font-size: 27px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .wm span { color: var(--clay); }
+    header nav { display: flex; align-items: center; gap: 24px; font-size: 15px; }
+    header nav a { color: var(--ink-2); text-decoration: none; }
+    header nav a:hover { color: var(--ink); }
+    header nav a[aria-current="page"] { color: var(--ink); font-weight: 600; }
+    .button {
+      display: inline-block;
+      background: var(--clay);
+      color: #fffbf2 !important;
+      text-decoration: none;
+      padding: 9px 18px;
+      border-radius: 999px;
+      font-size: 15px;
+      font-weight: 600;
+    }
+    .button:hover { background: var(--clay-deep); }
+
+    main { padding: 56px 0 80px; }
+    .doc {
+      max-width: 760px;
+      margin: 0 auto;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 48px 48px 40px;
+    }
+    h1, h2 {
+      font-family: var(--serif);
+      font-weight: 500;
+      letter-spacing: -0.015em;
+    }
+    h1 { font-size: 48px; line-height: 1.05; margin: 0 0 18px; }
+    h1 + p { color: var(--ink-2); font-size: 15px; }
+    h2 { font-size: 24px; line-height: 1.2; margin: 40px 0 10px; }
+    p, ul { margin: 0 0 14px; }
+    ul { padding-left: 22px; }
+    li { margin-bottom: 6px; }
+    li::marker { color: var(--clay); }
+
+    footer .wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding-top: 28px;
+      padding-bottom: 34px;
+      font-size: 14px;
+      color: var(--ink-3);
+      border-top: 1px solid var(--line);
+    }
+    footer nav { display: flex; gap: 18px; flex-wrap: wrap; }
+    footer a { color: var(--ink-3); text-decoration: none; }
+    footer a:hover { color: var(--ink); }
+
+    @media (max-width: 640px) {
+      .wrap { padding: 0 16px; }
+      header nav a:not(.button) { display: none; }
+      main { padding: 24px 0 48px; }
+      .doc { margin: 0 16px; padding: 28px 22px; border-radius: 18px; }
+      h1 { font-size: 36px; }
+      h2 { font-size: 21px; margin-top: 32px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <a href="/" class="wm">Pleat<span>.</span></a>
+      <nav>
+        <a href="/#how">How it works</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/support">Support</a>
+        <a class="button" href="/#signup">Get the beta</a>
+      </nav>
+    </div>
+  </header>
+<main><article class="doc">
+<h1>How to keep a fabric stash inventory</h1>
+<p>A stash inventory answers one question in the shop: do I already own something that would do? It only works if it's quick to keep up, so record a few things for every fabric and leave the rest for later.</p>
+<h2>What to record for each fabric</h2>
+<ul><li><strong>A photo.</strong> Daylight, the right side up, nothing else in the frame. You'll recognise the cloth faster from a picture than from a name.</li><li><strong>Length.</strong> Measure along the selvage, not across. Write it in the unit your patterns use, metres or yards (1 yd = 0.914 m).</li><li><strong>Fiber.</strong> Cotton, linen, wool, viscose, silk, polyester, or the blend if you know it. It decides what the fabric can be used for, and how it behaves in the wash.</li><li><strong>Width.</strong> Usually 110–115 cm (45") or 140–150 cm (55–60"). Pattern yardage depends on it, so it matters more than it looks.</li><li><strong>Weight.</strong> Light, medium or heavy is enough. If the shop gave you gsm (grams per square metre), keep the number.</li><li><strong>Where it is.</strong> "Blue bin, top shelf" saves turning the cupboard out.</li><li><strong>What you paid,</strong> if you want to know what a make cost later. Note whether it's the price per metre or for the whole cut.</li></ul>
+<p>Length, fiber and a photo are enough to start. Add the rest the next time you have the fabric in your hands.</p>
+<h2>Keep it current</h2>
+<ul><li><strong>Prewash before you measure,</strong> or note that it isn't prewashed yet. Cotton and linen can lose a few percent of their length in the first wash.</li><li><strong>Update the length when you cut.</strong> An inventory that still lists fabric you've used is worse than none: you'll plan a project around it.</li><li><strong>Mark fabric set aside for a project.</strong> It's still on the shelf, but it isn't free any more.</li><li><strong>Keep scraps under a size limit out of the list.</strong> Pieces smaller than about half a metre are better in a scrap bin than in the inventory.</li></ul>
+<h2>Spreadsheet or app</h2>
+<p>A spreadsheet works: one row per fabric, a column for each field above. It gets harder in the shop, where you need to compare a bolt in front of you with what's at home, and when several projects draw on the same piece.</p>
+<p>Pleat is an iPhone app built for this: a photo and a length to add a fabric, a camera check in the shop against what you own, and fabric reserved for a project stops counting as free. It imports a spreadsheet as CSV. <a href="https://plts.app">https://plts.app</a></p>
+  </article></main>
+  <footer>
+    <div class="wrap">
+      <span>Pleat · made in Riga</span>
+      <nav>
+        <a href="mailto:support@plts.app">support@plts.app</a>
+        <a href="/support">Support</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
