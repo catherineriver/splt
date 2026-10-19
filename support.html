@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Support — Pleat</title>
+  <meta name="description" content="Help and contact for Pleat, the iPhone app for people who sew.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #f0e5d2;
+      --paper-3: #dccdb3;
+      --card: #fffbf2;
+      --ink: #261c15;
+      --ink-2: #5e4e42;
+      --ink-3: #8b8175;
+      --line: rgba(38, 28, 21, 0.14);
+      --clay: #a8482a;
+      --clay-deep: #86381e;
+      --serif: "Fraunces", Georgia, serif;
+      --sans: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 17px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--clay-deep); text-underline-offset: 3px; }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+    header {
+      background: rgba(240, 229, 210, 0.92);
+      border-bottom: 1px solid var(--line);
+    }
+    header .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
+    .wm {
+      font-family: var(--serif);
+      font-size: 27px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .wm span { color: var(--clay); }
+    header nav { display: flex; align-items: center; gap: 24px; font-size: 15px; }
+    header nav a { color: var(--ink-2); text-decoration: none; }
+    header nav a:hover { color: var(--ink); }
+    header nav a[aria-current="page"] { color: var(--ink); font-weight: 600; }
+    .button {
+      display: inline-block;
+      background: var(--clay);
+      color: #fffbf2 !important;
+      text-decoration: none;
+      padding: 9px 18px;
+      border-radius: 999px;
+      font-size: 15px;
+      font-weight: 600;
+    }
+    .button:hover { background: var(--clay-deep); }
+
+    main { padding: 56px 0 80px; }
+    .doc {
+      max-width: 760px;
+      margin: 0 auto;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 48px 48px 40px;
+    }
+    h1, h2 {
+      font-family: var(--serif);
+      font-weight: 500;
+      letter-spacing: -0.015em;
+    }
+    h1 { font-size: 48px; line-height: 1.05; margin: 0 0 18px; }
+    h1 + p { color: var(--ink-2); font-size: 15px; }
+    h2 { font-size: 24px; line-height: 1.2; margin: 40px 0 10px; }
+    p, ul { margin: 0 0 14px; }
+    ul { padding-left: 22px; }
+    li { margin-bottom: 6px; }
+    li::marker { color: var(--clay); }
+
+    footer .wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding-top: 28px;
+      padding-bottom: 34px;
+      font-size: 14px;
+      color: var(--ink-3);
+      border-top: 1px solid var(--line);
+    }
+    footer nav { display: flex; gap: 18px; flex-wrap: wrap; }
+    footer a { color: var(--ink-3); text-decoration: none; }
+    footer a:hover { color: var(--ink); }
+
+    @media (max-width: 640px) {
+      .wrap { padding: 0 16px; }
+      header nav a:not(.button) { display: none; }
+      main { padding: 24px 0 48px; }
+      .doc { margin: 0 16px; padding: 28px 22px; border-radius: 18px; }
+      h1 { font-size: 36px; }
+      h2 { font-size: 21px; margin-top: 32px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <a href="/" class="wm">Pleat<span>.</span></a>
+      <nav>
+        <a href="/#how">How it works</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/support">Support</a>
+        <a class="button" href="/#signup">Get the beta</a>
+      </nav>
+    </div>
+  </header>
+<main><article class="doc">
+<h1>Support</h1>
+<p><strong>Pleat — a workbook for makers who sew</strong></p>
+<p>Write to <strong>support@plts.app</strong>. I read every email and usually answer within two working days. In the app, Settings › "Send feedback" opens a draft with your app version and iPhone model already filled in, which helps me find the problem faster.</p>
+<h2>Common questions</h2>
+<p><strong>Where is my stash stored?</strong><br>On your iPhone only. Pleat has no account and no sync. Your stash is included in your iPhone's backup (iCloud Backup or your computer) if backups are turned on.</p>
+<p><strong>I deleted something by mistake.</strong><br>Open Settings › Recently Deleted. Deleted fabrics, notions, patterns and projects stay there for 30 days.</p>
+<p><strong>How do I move my stash to a new iPhone?</strong><br>Restore the new iPhone from a backup of the old one. To keep a copy of your fabrics outside the phone, export them as a CSV file from Settings › Data (Pleat+).</p>
+<p><strong>How do I cancel Pleat+?</strong><br>On your iPhone, open Settings › your name › Subscriptions › Pleat, and tap Cancel Subscription. Pleat+ stays on until the end of the period you've paid for. Cancelling a free trial at least 24 hours before it ends means you won't be charged.</p>
+<p><strong>I bought Pleat+ but the app doesn't show it.</strong><br>In Pleat, open Settings and tap "Restore purchases", using the same Apple ID you bought with.</p>
+<p><strong>How do I get a refund?</strong><br>Refunds are handled by Apple at <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.</p>
+<p><strong>How do I turn off usage statistics?</strong><br>Settings › About › "Share anonymous usage". See the Privacy Policy for what is sent.</p>
+<h2>Legal</h2>
+<ul><li>Privacy Policy: <a href="https://plts.app/privacy">https://plts.app/privacy</a></li><li>Terms of Use: <a href="https://plts.app/terms">https://plts.app/terms</a></li></ul>
+  </article></main>
+  <footer>
+    <div class="wrap">
+      <span>Pleat · made in Riga</span>
+      <nav>
+        <a href="mailto:support@plts.app">support@plts.app</a>
+        <a href="/support">Support</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
