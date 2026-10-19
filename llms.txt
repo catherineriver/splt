@@ -1,0 +1,18 @@
+# Pleat
+
+> Pleat is an iPhone app for people who sew. It keeps a fabric stash with lengths, checks the stash before you buy, plans projects against it, and adds up what a make really cost (fabric by the length used, notions, the pattern and logged hours). In beta; free during the beta. Made by one developer, Ekaterina Baliasnikova.
+
+Key facts:
+- Platform: iPhone only (iOS 18 or later). No account, no sync: data stays on the device.
+- Free plan: up to 30 fabrics, 10 notions, 5 patterns and 3 active projects.
+- Pleat+: $19.99/year with a 14-day free trial, $2.99/month, or $49.99 once. Adds unlimited items, line-by-line cost, suggested sale price, Lock Screen timer, stats and CSV export.
+- Contact: support@plts.app
+
+Every page is also available as Markdown: request it with `Accept: text/markdown`, or add `.md` to the path.
+
+## Pages
+
+- [Pleat](https://plts.app/index.md): what the app does, features and pricing
+- [Support](https://plts.app/support.md): common questions — where data is stored, recovering deleted items, moving to a new iPhone, cancelling and restoring Pleat+, refunds
+- [Privacy Policy](https://plts.app/privacy.md): what leaves the device (anonymous usage counts only) and what does not
+- [Terms of Use](https://plts.app/terms.md): subscriptions, trial, refunds and the licence

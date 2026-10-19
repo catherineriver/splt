@@ -5,6 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Pleat — stop buying fabric you already own</title>
   <meta name="description" content="Pleat is an iPhone app for people who sew. Keep your whole fabric stash on your phone, check it in the shop before you buy, plan projects against it, and see what each make really cost.">
+  <link rel="canonical" href="https://plts.app/">
+  <link rel="alternate" type="text/markdown" href="/index.md" title="Markdown">
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "MobileApplication",
+        "@id": "https://plts.app/#app",
+        "name": "Pleat",
+        "url": "https://plts.app/",
+        "description": "An iPhone app for people who sew. Keep your whole fabric stash on your phone, check it in the shop before you buy, plan projects against it, and see what each make really cost.",
+        "operatingSystem": "iOS 18 or later",
+        "applicationCategory": "LifestyleApplication",
+        "author": { "@id": "https://plts.app/#maker" },
+        "offers": [
+          { "@type": "Offer", "name": "Pleat (free plan)", "price": "0", "priceCurrency": "USD" },
+          { "@type": "Offer", "name": "Pleat+ Annual", "price": "19.99", "priceCurrency": "USD", "description": "Per year, first 14 days free" },
+          { "@type": "Offer", "name": "Pleat+ Monthly", "price": "2.99", "priceCurrency": "USD", "description": "Per month" },
+          { "@type": "Offer", "name": "Pleat+ Lifetime", "price": "49.99", "priceCurrency": "USD", "description": "One-time purchase" }
+        ]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://plts.app/#maker",
+        "name": "Ekaterina Baliasnikova",
+        "email": "support@plts.app"
+      }
+    ]
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
@@ -681,11 +713,32 @@
   </footer>
 
   <script>
-    document.getElementById("signup-form").addEventListener("submit", (event) => {
+    document.getElementById("signup-form").addEventListener("submit", async (event) => {
       event.preventDefault();
-      const button = event.currentTarget.querySelector("button");
-      button.textContent = "Thanks, you’re on the list";
+      const form = event.currentTarget;
+      const button = form.querySelector("button");
+      const email = form.querySelector("input[name='email']").value.trim();
+
+      button.textContent = "Sending…";
       button.disabled = true;
+
+      try {
+        const response = await fetch("https://api.plts.app/waitlist", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email })
+        });
+        if (response.ok) {
+          button.textContent = "Thanks, you’re on the list";
+          return;
+        }
+        console.error("Waitlist signup failed:", response.status, await response.text());
+      } catch (error) {
+        console.error("Waitlist signup failed", error);
+      }
+
+      button.textContent = "Try again";
+      button.disabled = false;
     });
   </script>
 </body>
