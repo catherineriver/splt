@@ -3,8 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>How to keep a fabric stash inventory — Pleat</title>
+  <title>How to keep a fabric stash inventory — Pleats</title>
   <meta name="description" content="What to record for each fabric in your sewing stash (photo, length, fiber, width, weight, location, price), how to keep it current, and spreadsheet vs app.">
+  <link rel="canonical" href="https://plts.app/guides/fabric-stash-inventory">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Pleats">
+  <meta property="og:title" content="How to keep a fabric stash inventory">
+  <meta property="og:description" content="What to record for each fabric in your sewing stash (photo, length, fiber, width, weight, location, price), how to keep it current, and spreadsheet vs app.">
+  <meta property="og:url" content="https://plts.app/guides/fabric-stash-inventory">
+  <meta property="og:image" content="https://plts.app/og/fabric-shelf.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
@@ -90,7 +100,7 @@
     h1 + p { color: var(--ink-2); font-size: 15px; }
     h2 { font-size: 24px; line-height: 1.2; margin: 40px 0 10px; }
     p, ul { margin: 0 0 14px; }
-    ul { padding-left: 22px; }
+    ul, ol { padding-left: 22px; }
     li { margin-bottom: 6px; }
     li::marker { color: var(--clay); }
 
@@ -118,12 +128,21 @@
       h1 { font-size: 36px; }
       h2 { font-size: 21px; margin-top: 32px; }
     }
+      .doc figure { margin: 22px 0; }
+    .doc figure.banner img { display: block; width: 100%; aspect-ratio: 8 / 3; object-fit: cover; border-radius: 14px; }
+    .doc figure.shot { text-align: center; }
+    .doc figure.shot img { width: 100%; max-width: 260px; height: auto; border-radius: 30px; border: 1px solid var(--line); }
+    .doc figcaption { font-size: 14px; color: var(--ink-3); margin-top: 8px; }
+    .doc ul.cards { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+    .doc ul.cards li { margin: 0; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--paper); }
+    .doc ul.cards img { display: block; width: 100%; aspect-ratio: 8 / 3; object-fit: cover; }
+    .doc ul.cards .card-text { display: block; padding: 12px 14px 14px; font-size: 15px; }
   </style>
 </head>
 <body>
   <header>
     <div class="wrap">
-      <a href="/" class="wm">Pleat<span>.</span></a>
+      <a href="/" class="wm">Pleats<span>.</span></a>
       <nav>
         <a href="/#how">How it works</a>
         <a href="/#pricing">Pricing</a>
@@ -135,6 +154,7 @@
 <main><article class="doc">
 <h1>How to keep a fabric stash inventory</h1>
 <p>A stash inventory answers one question in the shop: do I already own something that would do? It only works if it's quick to keep up, so record a few things for every fabric and leave the rest for later.</p>
+<figure class="banner"><img src="/guides/img/fabric-shelf.jpg" alt="Shelves of folded fabric in a fabric shop" loading="lazy"></figure>
 <h2>What to record for each fabric</h2>
 <ul><li><strong>A photo.</strong> Daylight, the right side up, nothing else in the frame. You'll recognise the cloth faster from a picture than from a name.</li><li><strong>Length.</strong> Measure along the selvage, not across. Write it in the unit your patterns use, metres or yards (1 yd = 0.914 m).</li><li><strong>Fiber.</strong> Cotton, linen, wool, viscose, silk, polyester, or the blend if you know it. It decides what the fabric can be used for, and how it behaves in the wash.</li><li><strong>Width.</strong> Usually 110–115 cm (45") or 140–150 cm (55–60"). Pattern yardage depends on it, so it matters more than it looks.</li><li><strong>Weight.</strong> Light, medium or heavy is enough. If the shop gave you gsm (grams per square metre), keep the number.</li><li><strong>Where it is.</strong> "Blue bin, top shelf" saves turning the cupboard out.</li><li><strong>What you paid,</strong> if you want to know what a make cost later. Note whether it's the price per metre or for the whole cut.</li></ul>
 <p>Length, fiber and a photo are enough to start. Add the rest the next time you have the fabric in your hands.</p>
@@ -142,11 +162,13 @@
 <ul><li><strong>Prewash before you measure,</strong> or note that it isn't prewashed yet. Cotton and linen can lose a few percent of their length in the first wash.</li><li><strong>Update the length when you cut.</strong> An inventory that still lists fabric you've used is worse than none: you'll plan a project around it.</li><li><strong>Mark fabric set aside for a project.</strong> It's still on the shelf, but it isn't free any more.</li><li><strong>Keep scraps under a size limit out of the list.</strong> Pieces smaller than about half a metre are better in a scrap bin than in the inventory.</li></ul>
 <h2>Spreadsheet or app</h2>
 <p>A spreadsheet works: one row per fabric, a column for each field above. It gets harder in the shop, where you need to compare a bolt in front of you with what's at home, and when several projects draw on the same piece.</p>
-<p>Pleat is an iPhone app built for this: a photo and a length to add a fabric, a camera check in the shop against what you own, and fabric reserved for a project stops counting as free. It imports a spreadsheet as CSV. <a href="https://plts.app">https://plts.app</a></p>
+<figure class="shot"><img src="/screens/stash.jpg" alt="The Stash screen in Pleats: fabrics with photos and lengths, some reserved for projects" loading="lazy"><figcaption>The Stash screen in Pleats: fabrics with photos and lengths, some reserved for projects</figcaption></figure>
+<p>Pleats is an iPhone app built for this: a photo and a length to add a fabric, a camera check in the shop against what you own, and fabric reserved for a project stops counting as free. It imports a spreadsheet as CSV. <a href="https://plts.app">https://plts.app</a></p>
+<p>More guides: <a href="https://plts.app/guides">Sewing guides</a></p>
   </article></main>
   <footer>
     <div class="wrap">
-      <span>Pleat · made in Riga</span>
+      <span>Pleats · made in Riga</span>
       <nav>
         <a href="mailto:support@plts.app">support@plts.app</a>
         <a href="/support">Support</a>

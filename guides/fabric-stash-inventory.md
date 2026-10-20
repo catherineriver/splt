@@ -2,6 +2,8 @@
 
 A stash inventory answers one question in the shop: do I already own something that would do? It only works if it's quick to keep up, so record a few things for every fabric and leave the rest for later.
 
+![Shelves of folded fabric in a fabric shop](/guides/img/fabric-shelf.jpg)
+
 ## What to record for each fabric
 
 - **A photo.** Daylight, the right side up, nothing else in the frame. You'll recognise the cloth faster from a picture than from a name.
@@ -25,4 +27,8 @@ Length, fiber and a photo are enough to start. Add the rest the next time you ha
 
 A spreadsheet works: one row per fabric, a column for each field above. It gets harder in the shop, where you need to compare a bolt in front of you with what's at home, and when several projects draw on the same piece.
 
-Pleat is an iPhone app built for this: a photo and a length to add a fabric, a camera check in the shop against what you own, and fabric reserved for a project stops counting as free. It imports a spreadsheet as CSV. https://plts.app
+![The Stash screen in Pleats: fabrics with photos and lengths, some reserved for projects](/screens/stash.jpg "shot")
+
+Pleats is an iPhone app built for this: a photo and a length to add a fabric, a camera check in the shop against what you own, and fabric reserved for a project stops counting as free. It imports a spreadsheet as CSV. https://plts.app
+
+More guides: [Sewing guides](https://plts.app/guides)

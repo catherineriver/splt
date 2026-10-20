@@ -1,4 +1,4 @@
-# Pleat — https://plts.app
+# Pleats — https://plts.app
 # Content Signals (https://contentsignals.org): search engines, AI answers
 # and AI training may all use this site.
 

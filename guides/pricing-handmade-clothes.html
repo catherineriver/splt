@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to price handmade clothes — Pleats</title>
+  <meta name="description" content="Price handmade clothing to cover materials, your time and overheads: markup, margin or an hourly rate, with a worked example for a linen shirt.">
+  <link rel="canonical" href="https://plts.app/guides/pricing-handmade-clothes">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Pleats">
+  <meta property="og:title" content="How to price handmade clothes">
+  <meta property="og:description" content="Price handmade clothing to cover materials, your time and overheads: markup, margin or an hourly rate, with a worked example for a linen shirt.">
+  <meta property="og:url" content="https://plts.app/guides/pricing-handmade-clothes">
+  <meta property="og:image" content="https://plts.app/og/dress-rack.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #f0e5d2;
+      --paper-3: #dccdb3;
+      --card: #fffbf2;
+      --ink: #261c15;
+      --ink-2: #5e4e42;
+      --ink-3: #8b8175;
+      --line: rgba(38, 28, 21, 0.14);
+      --clay: #a8482a;
+      --clay-deep: #86381e;
+      --serif: "Fraunces", Georgia, serif;
+      --sans: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 17px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--clay-deep); text-underline-offset: 3px; }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+    header {
+      background: rgba(240, 229, 210, 0.92);
+      border-bottom: 1px solid var(--line);
+    }
+    header .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
+    .wm {
+      font-family: var(--serif);
+      font-size: 27px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .wm span { color: var(--clay); }
+    header nav { display: flex; align-items: center; gap: 24px; font-size: 15px; }
+    header nav a { color: var(--ink-2); text-decoration: none; }
+    header nav a:hover { color: var(--ink); }
+    header nav a[aria-current="page"] { color: var(--ink); font-weight: 600; }
+    .button {
+      display: inline-block;
+      background: var(--clay);
+      color: #fffbf2 !important;
+      text-decoration: none;
+      padding: 9px 18px;
+      border-radius: 999px;
+      font-size: 15px;
+      font-weight: 600;
+    }
+    .button:hover { background: var(--clay-deep); }
+
+    main { padding: 56px 0 80px; }
+    .doc {
+      max-width: 760px;
+      margin: 0 auto;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 48px 48px 40px;
+    }
+    h1, h2 {
+      font-family: var(--serif);
+      font-weight: 500;
+      letter-spacing: -0.015em;
+    }
+    h1 { font-size: 48px; line-height: 1.05; margin: 0 0 18px; }
+    h1 + p { color: var(--ink-2); font-size: 15px; }
+    h2 { font-size: 24px; line-height: 1.2; margin: 40px 0 10px; }
+    p, ul { margin: 0 0 14px; }
+    ul, ol { padding-left: 22px; }
+    li { margin-bottom: 6px; }
+    li::marker { color: var(--clay); }
+
+    footer .wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding-top: 28px;
+      padding-bottom: 34px;
+      font-size: 14px;
+      color: var(--ink-3);
+      border-top: 1px solid var(--line);
+    }
+    footer nav { display: flex; gap: 18px; flex-wrap: wrap; }
+    footer a { color: var(--ink-3); text-decoration: none; }
+    footer a:hover { color: var(--ink); }
+
+    @media (max-width: 640px) {
+      .wrap { padding: 0 16px; }
+      header nav a:not(.button) { display: none; }
+      main { padding: 24px 0 48px; }
+      .doc { margin: 0 16px; padding: 28px 22px; border-radius: 18px; }
+      h1 { font-size: 36px; }
+      h2 { font-size: 21px; margin-top: 32px; }
+    }
+      .doc figure { margin: 22px 0; }
+    .doc figure.banner img { display: block; width: 100%; aspect-ratio: 8 / 3; object-fit: cover; border-radius: 14px; }
+    .doc figure.shot { text-align: center; }
+    .doc figure.shot img { width: 100%; max-width: 260px; height: auto; border-radius: 30px; border: 1px solid var(--line); }
+    .doc figcaption { font-size: 14px; color: var(--ink-3); margin-top: 8px; }
+    .doc ul.cards { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+    .doc ul.cards li { margin: 0; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--paper); }
+    .doc ul.cards img { display: block; width: 100%; aspect-ratio: 8 / 3; object-fit: cover; }
+    .doc ul.cards .card-text { display: block; padding: 12px 14px 14px; font-size: 15px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <a href="/" class="wm">Pleats<span>.</span></a>
+      <nav>
+        <a href="/#how">How it works</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/support">Support</a>
+        <a class="button" href="/#signup">Get the beta</a>
+      </nav>
+    </div>
+  </header>
+<main><article class="doc">
+<h1>How to price handmade clothes</h1>
+<p>A price has to cover three things: the materials, your time, and the costs of running the work. Profit comes on top of those, not out of them.</p>
+<figure class="banner"><img src="/guides/img/dress-rack.jpg" alt="Handmade dresses on a wooden clothes rack" loading="lazy"></figure>
+<h2>1. Add up the cost of the make</h2>
+<ul><li><strong>Materials:</strong> fabric by the length used, notions, the pattern or a share of it.</li><li><strong>Your time:</strong> every hour, including cutting, fitting, pressing and finishing, at an hourly rate you'd accept for the work.</li><li><strong>Overheads:</strong> what the work costs whether or not you're sewing: machine servicing, needles and blades, electricity, packaging, photos, and the fees a shop platform or payment service takes per sale.</li></ul>
+<p>Overheads are easy to forget. A simple way to cover them is to add a percentage to the materials and labour, for example 10–20%, and adjust once you know your own numbers.</p>
+<h2>2. Choose how to get from cost to price</h2>
+<ul><li><strong>Markup:</strong> price = cost × (1 + markup). A 50% markup on a $139.40 cost gives $209.10.</li><li><strong>Margin:</strong> price = cost ÷ (1 − margin). A 50% margin on $139.40 gives $278.80, and half of every sale is profit.</li><li><strong>Hourly rate first:</strong> set the rate you need, then price = materials + overheads + hours × rate. Here the profit is already inside the rate.</li></ul>
+<p>Markup and margin at the same percentage give different prices. Pick one way and use it every time, so your prices stay consistent.</p>
+<h2>A worked example</h2>
+<p>A linen shirt:</p>
+<ul><li>Fabric: 2.2 m at $12/m = $26.40</li><li>Notions: $9.00</li><li>Pattern: $14.00</li><li>Time: 6 hours at $15/hour = $90.00</li><li>Cost: $139.40</li><li>Overheads at 15%: $20.91</li><li><strong>Full cost: $160.31</strong></li><li>With a 40% margin: $160.31 ÷ 0.6 = <strong>$267.18</strong>, which you might round to $265 or $270.</li></ul>
+<h2>Check the price against the market</h2>
+<p>Look at what similar handmade pieces sell for, in your area or on the platforms you'd use. If your price is far above them, look at the hours first: a second shirt from the same pattern is usually faster than the first. If it's far below them, you may be underpricing your time.</p>
+<h2>Track it</h2>
+<figure class="shot"><img src="/screens/projects.jpg" alt="The Projects screen in Pleats: each make with its cost and stage" loading="lazy"><figcaption>The Projects screen in Pleats: each make with its cost and stage</figcaption></figure>
+<p>Pleats, an iPhone app for people who sew, adds up a make from your stash (fabric by the length used, notions, the pattern and logged hours) and suggests a sale price from markup, margin, profit or an hourly rate. <a href="https://plts.app">https://plts.app</a></p>
+<p>More guides: <a href="https://plts.app/guides">Sewing guides</a></p>
+  </article></main>
+  <footer>
+    <div class="wrap">
+      <span>Pleats · made in Riga</span>
+      <nav>
+        <a href="mailto:support@plts.app">support@plts.app</a>
+        <a href="/support">Support</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

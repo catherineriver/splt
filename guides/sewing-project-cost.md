@@ -2,6 +2,8 @@
 
 A handmade garment costs more than the fabric. Add up four things: the fabric you used, the notions, the pattern, and your time.
 
+![Buttons, thread and a safety pin on a table](/guides/img/buttons-thread.jpg)
+
 ## 1. Fabric, by the length you used
 
 Price the fabric by the length that went into the project, not the whole cut. If you bought 3 m for $36, it cost $12 a metre. A shirt that used 2.2 m used $26.40 of it; the rest is still in your stash, at the same price per metre.
@@ -39,4 +41,8 @@ Markup and margin at the same percentage give different prices, so pick one and 
 
 ## Track it
 
-Pleat, an iPhone app for people who sew, does this sum from your stash: fabric priced by the length used, notions, the pattern and logged hours, and it says when a fabric has no price instead of counting it as free. It can suggest a sale price from markup, margin, profit or an hourly rate. https://plts.app
+![A finished shirt in Pleats: fabric, notions, pattern and labour, each priced](/screens/cost.jpg "shot")
+
+Pleats, an iPhone app for people who sew, does this sum from your stash: fabric priced by the length used, notions, the pattern and logged hours, and it says when a fabric has no price instead of counting it as free. It can suggest a sale price from markup, margin, profit or an hourly rate. https://plts.app
+
+More guides: [Sewing guides](https://plts.app/guides)

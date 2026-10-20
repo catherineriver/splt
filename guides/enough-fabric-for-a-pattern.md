@@ -2,6 +2,8 @@
 
 Check it before you lay out the pattern pieces, not after. You need three things: the pattern's yardage chart, the width of your fabric, and how much of it you have after prewashing.
 
+![Hands cutting out a paper sewing pattern with scissors](/guides/img/cutting-pattern.jpg)
+
 ## Read the yardage chart
 
 - **Find your size,** and the view you're making. Views with sleeves, collars or longer hems can need noticeably more.
@@ -12,8 +14,8 @@ Check it before you lay out the pattern pieces, not after. You need three things
 ## Allow for the fabric itself
 
 - **Shrinkage.** Prewash first, then measure. Cotton and linen can lose a few percent of their length in the first wash; on 2 m that's several centimetres.
-- **One-way designs.** Prints with a direction, and fabrics with a nap or pile (velvet, corduroy), need every piece cut the same way up. That uses more length than the chart's standard layout. Many charts give a separate "with nap" figure.
-- **Plaids and stripes.** Matching them at the seams can take up to one pattern repeat extra per piece that has to match.
+- **One-way designs.** Prints with a direction, and fabrics with a nap or pile (velvet, corduroy), need every piece cut the same way up. That often takes 10–20% more length than the chart's standard layout. Many charts give a separate "with nap" figure.
+- **Plaids and stripes.** Allow about one pattern repeat extra for each main piece that has to match. For a dress in a large plaid that can be a metre or more.
 - **Flaws.** Check the full length for marks and misprints before you count it.
 
 ## Metres and yards
@@ -26,4 +28,8 @@ Cut some pieces from a second fabric (facings, pockets, under-collar, yoke linin
 
 ## Track it
 
-Pleat, an iPhone app for people who sew, fills a project's requirement from the pattern's yardage and shows how much of it your stash covers, for example "1.5 of 2.2 m", so you know the gap before you cut. https://plts.app
+![A planned project in Pleats: 1.5 of 2.2 m of green cotton twill assigned from the stash](/screens/coverage.jpg "shot")
+
+Pleats, an iPhone app for people who sew, fills a project's requirement from the pattern's yardage and shows how much of it your stash covers, for example "1.5 of 2.2 m", so you know the gap before you cut. https://plts.app
+
+More guides: [Sewing guides](https://plts.app/guides)
