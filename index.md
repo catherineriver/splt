@@ -26,7 +26,7 @@ Snap a photo and type the length and fiber. That's enough to start; width, weigh
 
 Pick a pattern and its yardage fills in what the project needs. Assign fabric from your stash, and Pleats shows what's covered and what's still missing.
 
-- **The gap, in metres.** "1.5 of 2.2 m" means you know exactly what to buy.
+- **The gap, in metres.** "Indigo denim · 0.7 m short" tells you exactly what to buy.
 - **Patterns remember their yardage.** Type it once and the next project fills in.
 
 ## See what a make really cost

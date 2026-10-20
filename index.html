@@ -126,6 +126,7 @@
       transition: background 0.15s;
     }
     .button:hover { background: var(--clay-deep); }
+    .button:active { transform: translateY(1px); background: var(--clay-deep); }
     .button.small { padding: 9px 18px; font-size: 15px; }
     .text-link {
       font-size: 16px;
@@ -142,8 +143,7 @@
       position: sticky;
       top: 0;
       z-index: 10;
-      background: rgba(240, 229, 210, 0.92);
-      backdrop-filter: blur(12px);
+      background: var(--paper);
       border-bottom: 1px solid var(--line);
     }
     header .wrap {
@@ -180,22 +180,18 @@
       padding-top: 64px;
       padding-bottom: 72px;
     }
-    .badge {
-      display: inline-block;
-      background: var(--green-soft);
-      color: var(--green-deep);
-      font-size: 14px;
-      font-weight: 600;
-      padding: 6px 12px;
-      border-radius: 999px;
-      margin-bottom: 22px;
+    .status {
+      font-size: 15px;
+      color: var(--ink-2);
+      margin: 0 0 18px;
     }
     h1 {
-      font-size: 64px;
-      line-height: 1.02;
-      margin-bottom: 22px;
+      font-size: 68px;
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: -0.025em;
+      margin-bottom: 24px;
     }
-    h1 em { font-style: italic; color: var(--clay); }
     .lede {
       font-size: 19px;
       color: var(--ink-2);
@@ -229,13 +225,6 @@
       position: relative;
       height: 600px;
     }
-    .phones::before {
-      content: "";
-      position: absolute;
-      inset: 48px 0 20px 40px;
-      background: var(--paper-2);
-      border-radius: 32px;
-    }
     .phone {
       position: absolute;
       width: 268px;
@@ -248,17 +237,26 @@
     .phone.back { top: 0; right: 0; }
     .phone.front { top: 48px; left: 0; }
 
+    /* Real cloth from a real stash, edge to edge */
+    .swatches {
+      display: grid;
+      grid-template-columns: repeat(8, minmax(0, 1fr));
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .swatches img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1;
+      object-fit: cover;
+    }
+
     /* Section basics */
     section { padding: 88px 0; }
     .section-head {
       max-width: 40em;
       margin-bottom: 44px;
-    }
-    .kicker {
-      color: var(--clay);
-      font-weight: 600;
-      font-size: 15px;
-      margin: 0 0 10px;
     }
     h2 {
       font-size: 44px;
@@ -269,34 +267,33 @@
       font-size: 18px;
       margin: 16px 0 0;
     }
-    .section-head p.kicker { color: var(--clay); font-size: 15px; margin: 0 0 10px; }
 
     /* Problems */
-    .problems { background: var(--card); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-    .problem-grid {
+    .problems .wrap {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 20px;
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+      gap: 56px;
+      align-items: start;
     }
-    .problem {
-      background: var(--paper);
-      border-radius: 18px;
-      padding: 26px 26px 28px;
+    .problems h2 { font-size: 40px; }
+    .problem-list { list-style: none; margin: 0; padding: 0; }
+    .problem-list li {
+      display: grid;
+      grid-template-columns: 2.2em minmax(0, 1fr);
+      gap: 0 12px;
+      padding: 22px 0 24px;
+      border-top: 1px solid var(--ink);
     }
-    .problem h3 {
-      font-size: 23px;
+    .problem-list li:last-child { border-bottom: 1px solid var(--line); }
+    .problem-list .n {
+      font-family: var(--serif);
+      font-size: 22px;
+      color: var(--ink-3);
       line-height: 1.2;
-      margin-bottom: 10px;
     }
-    .problem p { margin: 0; color: var(--ink-2); font-size: 16px; }
-    .problem .fix {
-      margin-top: 16px;
-      padding-top: 14px;
-      border-top: 1px solid var(--line);
-      color: var(--green-deep);
-      font-weight: 600;
-      font-size: 15px;
-    }
+    .problem-list h3 { font-size: 24px; line-height: 1.2; margin-bottom: 6px; }
+    .problem-list p { margin: 0; color: var(--ink-2); grid-column: 2; }
+    .problem-list .fix { margin-top: 10px; color: var(--green-deep); font-weight: 600; }
 
     /* Features */
     .feature {
@@ -309,7 +306,6 @@
     .feature.flip .feature-copy { order: 2; }
     .feature-copy h2 { font-size: 40px; margin-bottom: 16px; }
     .feature-copy > p { color: var(--ink-2); font-size: 18px; margin: 0 0 22px; }
-    .feature-copy > p.kicker { color: var(--clay); font-size: 15px; margin: 0 0 10px; }
     .points {
       list-style: none;
       padding: 0;
@@ -354,6 +350,8 @@
     }
 
     /* Privacy */
+    #pricing h2, .faq h2 { font-size: 34px; }
+    .faq { padding: 64px 0; }
     .privacy-band {
       background: var(--green);
       color: #f3eee6;
@@ -478,6 +476,7 @@
       background: rgba(255, 251, 242, 0.06);
       color: #fffbf2;
     }
+    .form-note { min-height: 1.5em; margin: 14px auto 0 !important; font-size: 15px !important; }
     #signup input::placeholder { color: rgba(243, 238, 230, 0.5); }
 
     footer .wrap {
@@ -499,7 +498,7 @@
       h1 { font-size: 50px; }
       .hero .wrap { grid-template-columns: 1fr; }
       .phones { height: 540px; max-width: 460px; }
-      .problem-grid { grid-template-columns: 1fr; }
+      .problems .wrap { grid-template-columns: 1fr; gap: 28px; }
       .feature, .privacy-band .wrap { grid-template-columns: 1fr; gap: 36px; }
       .feature.flip .feature-copy { order: 0; }
     }
@@ -511,7 +510,7 @@
       h1 { font-size: 40px; }
       .lede { font-size: 17px; }
       .phones { height: auto; }
-      .phones::before, .phone.back { display: none; }
+      .phone.back { display: none; }
       .phone.front { position: static; display: block; margin: 0 auto; width: 250px; }
       section { padding: 60px 0; }
       h2, #signup h2 { font-size: 32px; }
@@ -541,8 +540,8 @@
     <div class="hero">
       <div class="wrap">
         <div>
-          <span class="badge">Fabric stash app for iPhone · free during the beta</span>
-          <h1>Stop buying fabric you <em>already own.</em></h1>
+          <p class="status">Fabric stash app for iPhone · free during the beta</p>
+          <h1>Stop buying fabric you already own.</h1>
           <p class="lede">Pleats is a fabric stash organizer for people who sew. It keeps your fabric, patterns and notions on your iPhone. Check it in the shop before you buy, see whether a project is covered before you cut, and know what each make really cost when it’s done.</p>
           <div class="ctas">
             <a class="button" href="#signup">Get a beta invite</a>
@@ -555,35 +554,46 @@
           </ul>
         </div>
         <div class="phones" aria-hidden="true">
-          <img class="phone back" src="screens/stash.jpg" width="330" height="715" alt="">
-          <img class="phone front" src="screens/projects.jpg" width="330" height="715" alt="">
+          <img class="phone back" src="screens/stash.jpg?v=2" width="330" height="715" alt="">
+          <img class="phone front" src="screens/projects.jpg?v=2" width="330" height="715" alt="">
         </div>
       </div>
     </div>
 
+    <div class="swatches" aria-hidden="true">
+      <img src="screens/swatches/stripe.jpg" width="360" height="360" alt="">
+      <img src="screens/swatches/tartan.jpg" width="360" height="360" alt="">
+      <img src="screens/swatches/denim.jpg" width="360" height="360" alt="">
+      <img src="screens/swatches/floral.jpg" width="360" height="360" alt="">
+      <img src="screens/swatches/linen.jpg" width="360" height="360" alt="">
+      <img src="screens/swatches/velvet.jpg" width="360" height="360" alt="">
+      <img src="screens/swatches/gingham.jpg" width="360" height="360" alt="">
+      <img src="screens/swatches/wool.jpg" width="360" height="360" alt="">
+    </div>
+
     <section class="problems">
       <div class="wrap">
-        <div class="section-head">
-          <p class="kicker">Sound familiar?</p>
-          <h2>A stash grows faster than anyone can remember it.</h2>
-        </div>
-        <div class="problem-grid">
-          <div class="problem">
+        <h2>A stash grows faster than anyone can remember it.</h2>
+        <ol class="problem-list">
+          <li>
+            <span class="n">1</span>
             <h3>The same navy linen, bought twice.</h3>
             <p>It was on sale, it looked new, and the first one was in a box under the bed.</p>
             <p class="fix">Pleats checks your stash from the shop floor.</p>
-          </div>
-          <div class="problem">
+          </li>
+          <li>
+            <span class="n">2</span>
             <h3>The pattern says 2.2 m. You have… some.</h3>
             <p>You find out it’s short after the pattern pieces are already laid out.</p>
             <p class="fix">Pleats shows the gap before you start.</p>
-          </div>
-          <div class="problem">
+          </li>
+          <li>
+            <span class="n">3</span>
             <h3>“What did that shirt cost you?”</h3>
             <p>Fabric, buttons, thread, the pattern, six evenings. Nobody adds it up.</p>
             <p class="fix">Pleats adds it up, hours included.</p>
-          </div>
-        </div>
+          </li>
+        </ol>
       </div>
     </section>
 
@@ -591,7 +601,6 @@
       <div class="wrap">
         <div class="feature">
           <div class="feature-copy">
-            <p class="kicker">Your stash</p>
             <h2>Every fabric you own, with its length.</h2>
             <p>Snap a photo and type the length and fiber. That’s enough to start; width, weight, price and where it’s stored can wait.</p>
             <ul class="points">
@@ -601,28 +610,26 @@
             </ul>
           </div>
           <div class="feature-shot">
-            <img src="screens/stash.jpg" width="330" height="715" alt="The Stash screen in Pleats: fabrics with photos and lengths, some reserved for projects" loading="lazy">
+            <img src="screens/stash.jpg?v=2" width="330" height="715" alt="The Stash screen in Pleats: fabrics with photos and lengths, some reserved for projects" loading="lazy">
           </div>
         </div>
 
         <div class="feature flip">
           <div class="feature-copy">
-            <p class="kicker">Planning</p>
             <h2>Know if the stash covers it before you cut.</h2>
             <p>Pick a pattern and its yardage fills in what the project needs. Assign fabric from your stash, and Pleats shows what’s covered and what’s still missing.</p>
             <ul class="points">
-              <li><strong>The gap, in metres.</strong> “1.5 of 2.2 m” means you know exactly what to buy.</li>
+              <li><strong>The gap, in metres.</strong> “Indigo denim · 0.7 m short” tells you exactly what to buy.</li>
               <li><strong>Patterns remember their yardage.</strong> Type it once and the next project fills in.</li>
             </ul>
           </div>
           <div class="feature-shot">
-            <img src="screens/coverage.jpg" width="330" height="715" alt="A planned project in Pleats: 1.5 of 2.2 m of green cotton twill assigned" loading="lazy">
+            <img src="screens/coverage.jpg?v=2" width="330" height="715" alt="A planned project in Pleats: denim trousers, 0.7 m of indigo denim still short, and the cost so far" loading="lazy">
           </div>
         </div>
 
         <div class="feature">
           <div class="feature-copy">
-            <p class="kicker">Cost</p>
             <h2>See what a make really cost.</h2>
             <p>Fabric is priced by the length you used, not the whole cut. Notions, the pattern and your hours go on top, and nothing missing is quietly counted as free.</p>
             <ul class="points">
@@ -631,7 +638,7 @@
             </ul>
           </div>
           <div class="feature-shot">
-            <img src="screens/cost.jpg" width="330" height="715" alt="Full details of a finished shirt in Pleats: fabric, notions, pattern and labor, each priced" loading="lazy">
+            <img src="screens/cost.jpg?v=2" width="330" height="715" alt="Full details of a finished shirt in Pleats: fabric, notions, pattern and labor, each priced" loading="lazy">
           </div>
         </div>
       </div>
@@ -647,7 +654,6 @@
     <section id="pricing">
       <div class="wrap">
         <div class="section-head">
-          <p class="kicker">Pricing</p>
           <h2>Free to start. Pleats+ when your stash outgrows it.</h2>
           <span class="beta-note">During the beta, everything is free.</span>
         </div>
@@ -683,7 +689,6 @@
     <section class="faq" id="faq">
       <div class="wrap">
         <div class="section-head">
-          <p class="kicker">Questions</p>
           <h2>Before you ask</h2>
         </div>
         <div class="faq-list">
@@ -723,13 +728,14 @@
           <input type="email" name="email" placeholder="you@example.com" autocomplete="email" required aria-label="Email">
           <button class="button" type="submit">Send me an invite</button>
         </form>
+        <p class="form-note" role="status" aria-live="polite"></p>
       </div>
     </section>
   </main>
 
   <footer>
     <div class="wrap">
-      <span>Pleats · made in Riga</span>
+      <span>Pleats · made in Riga · fabric photos from <a href="https://unsplash.com/license">Unsplash</a></span>
       <nav aria-label="Guides">
         <a href="/guides/">Sewing guides</a>
         <a href="/guides/how-much-fabric-for-a-dress">Fabric for a dress</a>
@@ -751,6 +757,8 @@
       const form = event.currentTarget;
       const button = form.querySelector("button");
       const email = form.querySelector("input[name='email']").value.trim();
+      const note = form.parentElement.querySelector(".form-note");
+      note.textContent = "";
 
       button.textContent = "Sending…";
       button.disabled = true;
@@ -763,6 +771,7 @@
         });
         if (response.ok) {
           button.textContent = "Thanks, you’re on the list";
+          note.textContent = "The invite goes to " + email + " when the next beta build is out.";
           return;
         }
         console.error("Waitlist signup failed:", response.status, await response.text());
@@ -770,6 +779,7 @@
         console.error("Waitlist signup failed", error);
       }
 
+      note.textContent = "That didn’t go through. Try again, or write to support@plts.app and I’ll add you.";
       button.textContent = "Try again";
       button.disabled = false;
     });
